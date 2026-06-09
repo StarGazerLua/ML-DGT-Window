@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)https://ashrae-meteo.info/v3.0/ -->
+<html data-qb-installed="true"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>ASHRAE climatic design conditions 2009/2013/2017/2021/2025</title>
+<script src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/cb=gapi.loaded_0" async=""></script><script src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/f.txt"></script><script src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/f(1).txt"></script><script type="text/javascript" async="" src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/plusone.js.下载" gapi_processed="true"></script><script type="text/javascript" async="" src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/ga.js.下载"></script><script data-name="BMC-Widget" src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/widget.prod.min.js.下载" data-id="9bOrYUx" data-description="Support me on Buy me a coffee!" data-message="" data-color="#5F7FFF" data-position="left" data-x_margin="18" data-y_margin="18"></script>
+
+
+
+<meta name="viewport" content="width=device-width">
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<meta name="description" content="ASHRAE climatic design conditions station finder">
+<meta name="keywords" content="ashrae meteorological weather data meteo meteostation psychrometric calculator climatic design conditions station finder ">
+
+<meta name="google-site-verification" content="P4Qd1ufss6Q7MCkkR6whMf9rG86TOtUKuA3HZlabclg">
+<script src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/chart.js.下载"></script>
+<script type="module" src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/output_result_module.js.下载"></script>
+<script type="module" src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/compare_module.js.下载"></script>
+
+<script type="text/javascript">  var _gaq = _gaq || [];  _gaq.push(['_setAccount', 'UA-32160154-1']);  _gaq.push(['_trackPageview']);  (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })();
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);} 
+  gtag('js', new Date());
+
+  gtag('config', 'G-XMTZ7MSQWD');
+</script>
+<script type="text/javascript" src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/jsts.min.js.下载"></script> 
+<script type="text/javascript" src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/papaparse.min.js.下载"></script> 
+
+
+
+<script type="text/javascript" src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/ol_6.15.1.js.下载"></script> 
+<link type="text/css" rel="stylesheet" media="all" href="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/ol_6.15.1.css">
+
+
+<script src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/ol-geocoder_4.1.2.js.下载"></script>
+<link href="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/ol-geocoder_4.1.2.min.css" rel="stylesheet">
+
+
+
+
+<script src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/jquery.js.下载"></script>
+<script src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/jquery-ui.js.下载"></script>
+<link rel="stylesheet" href="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/jquery-ui.css">
+
+
+
+<link type="text/css" rel="stylesheet" media="all" href="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/ashrae_meteo.css">
+<link type="text/css" rel="stylesheet" media="all" href="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/tooltip.css">
+<script type="text/javascript" src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/ol_map.js.下载"></script>  
+<script type="text/javascript" src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/tooltip.js.下载"></script> 
+<script type="text/javascript" src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/psychrometrics.js.下载"></script> 
+<script type="text/javascript" src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/psi_calc.js.下载"></script> 
+
+<script type="text/javascript"> 
+
+
+var ie = document.all ? true : false;
+var meteo_response;
+var params = "";
+var location_php;
+
+var syncedCookies = ['ashrae_version', 'si_ip'];
+var lastSyncedCookieState = {};
+
+function broadcastCookieChange(name, value) {
+    if (syncedCookies.indexOf(name) === -1) {
+        return;
+    }
+    try {
+        localStorage.setItem('cookie-sync-' + name, JSON.stringify({ value: String(value), ts: Date.now() }));
+    } catch (e) {}
+}
+
+if (typeof document.getElementsByClassName!='function') { //добавление функционала class
+    document.getElementsByClassName = function() {
+        var elms = document.getElementsByTagName('*');
+        var ei = new Array();
+        for (i=0;i<elms.length;i++) {
+            if (elms[i].getAttribute('class')) {
+                ecl = elms[i].getAttribute('class').split(' ');
+                for (j=0;j<ecl.length;j++) {
+                    if (ecl[j].toLowerCase() == arguments[0].toLowerCase()) {
+                        ei.push(elms[i]);
+                    }
+                }
+            } else if (elms[i].className) {
+                ecl = elms[i].className.split(' ');
+                for (j=0;j<ecl.length;j++) {
+                    if (ecl[j].toLowerCase() == arguments[0].toLowerCase()) {
+                        ei.push(elms[i]);
+                    }
+                }
+            }
+        }
+        return ei;
+    }
+} 
+
+function runOutputResult(wmo, ashrae_version, si_ip, i) {
+    if (window.output_result) {
+        window.output_result(wmo, ashrae_version, si_ip, i);
+    } else {
+        window.addEventListener(
+            'output_result-ready',
+            () => window.output_result(wmo, ashrae_version, si_ip, i),
+            { once: true }
+        );
+    }
+}
+
+function setCookie(name, value, options) {
+  options = options || {};
+
+  var expires = options.expires;
+
+  if (typeof expires == "number" && expires) {
+    var d = new Date();
+    d.setTime(d.getTime() + expires * 1000);
+    expires = options.expires = d;
+  }
+  if (expires && expires.toUTCString) {
+    options.expires = expires.toUTCString();
+  }
+
+  var rawValue = value;
+  value = encodeURIComponent(value);
+
+  var updatedCookie = name + "=" + value;
+
+  for (var propName in options) {
+    updatedCookie += "; " + propName;
+    var propValue = options[propName];
+    if (propValue !== true) {
+      updatedCookie += "=" + propValue;
+    }
+  }
+
+  document.cookie = updatedCookie;
+  broadcastCookieChange(name, rawValue);
+  lastSyncedCookieState[name] = rawValue;
+}
+
+
+function deleteCookie(name) {
+  setCookie(name, "", {
+    expires: -1 
+  })
+}
+
+function getCookie(name) {
+  var matches = document.cookie.match(new RegExp(
+    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+  ));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+lastSyncedCookieState.ashrae_version = getCookie('ashrae_version');
+lastSyncedCookieState.si_ip = getCookie('si_ip');
+
+function refreshAshraeRadios(target) {
+  var radios = document.querySelectorAll('input[name="radio"]');
+  radios.forEach(function(r) {
+    var shouldCheck = target ? r === target : r.checked;
+    if (target && r.checked !== shouldCheck) {
+      r.checked = shouldCheck;
+    }
+    if (window.jQuery && jQuery.fn && jQuery.fn.checkboxradio) {
+      jQuery(r).checkboxradio('refresh');
+      var widget = jQuery(r).checkboxradio('widget');
+      if (widget && widget.length) {
+        widget.toggleClass('ui-state-active', r.checked);
+        widget.removeClass('ui-state-focus ui-state-hover');
+      }
+    }
+  });
+}
+
+function syncCookieFromStorage(name, value) {
+  if (!value || lastSyncedCookieState[name] === value) {
+    return;
+  }
+  lastSyncedCookieState[name] = value;
+  if (name === 'ashrae_version') {
+    var verRadio = document.getElementById('radio' + value);
+    if (verRadio) {
+      refreshAshraeRadios(verRadio);
+    }
+    check_ashrae_version(value, true);
+  }
+  if (name === 'si_ip') {
+    var unitInput = document.querySelector('input[name="group1"][data-unit="' + value + '"]');
+    if (unitInput) {
+      unitInput.checked = true;
+    }
+    error_IPSI(value);
+  }
+}
+
+window.addEventListener('storage', function(event) {
+  if (!event.key || event.key.indexOf('cookie-sync-') !== 0 || !event.newValue) {
+    return;
+  }
+  try {
+    var payload = JSON.parse(event.newValue);
+    if (payload && payload.value) {
+      syncCookieFromStorage(event.key.replace('cookie-sync-', ''), payload.value);
+    }
+  } catch (e) {}
+});
+
+window.addEventListener('focus', function () {
+  syncCookieFromStorage('ashrae_version', getCookie('ashrae_version'));
+  syncCookieFromStorage('si_ip', getCookie('si_ip'));
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  refreshAshraeRadios(document.querySelector('input[name="radio"]:checked'));
+});
+
+function read_string(){
+ var latlng_format = /^[ ]*-?\d+.?\d* *[,;] *-?\d+.?\d*[ ]*$/;
+ var wmo_format = /^\d{6}$/;
+ if (latlng_format.test(document.getElementById('address_st').value)) {
+ var latlng_string = document.getElementById('address_st').value;
+ latlng_string = latlng_string.replace(/,/ ,";");
+ latlng_string = latlng_string.replace(/ / ,"");
+ latlng_array = latlng_string.split(";");
+ if (latlng_array[0]<90 && latlng_array[0]>-90 && latlng_array[1]<180 && latlng_array[1]>-180){
+ codeLatLng((latlng_array[0]*1),(latlng_array[1]*1));
+}
+ else {
+alert("latitude must be between -90 and 90");
+ }
+}
+		if (wmo_format.test(document.getElementById('address_st').value)) {
+		fusion_station( '','' ,'' ,document.getElementById('address_st').value)	
+		}
+
+}
+
+
+
+function request_place(location,infowindow){ //запрашивает из базы список близжайших метеостанций, формирует из них таблицу с правой стороны окна и показывает балуны на карте
+	
+var params = "lat="+location[0].toFixed(3)+"&long="+location[1].toFixed(3)+"&number="+number_global+"&ashrae_version="+getCookie('ashrae_version');//список параметров для отправки запроса на сервер
+var request = new ajaxRequest();
+request.open("POST", "request_places.php", true);
+request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//deleteOverlays_near();
+request.onreadystatechange = function()
+	{
+		if (this.readyState == 4) 
+		{
+			if (this.status == 200) 
+			{
+				if (this.responseText != null)
+				{
+				var meteo_response = this.responseText;
+				//console.log (meteo_response);
+				
+				//var finish = meteo_response.indexOf('<');
+				//var json_string = meteo_response.slice(0,finish);
+				//myplaces = meteo_response.substring(1, meteo_response.length - 1);
+				myplaces = JSON.parse(meteo_response);
+                //myplaces = eval('(' + json_string + ')');
+				//map.getView().setZoom(0);
+				var station_extent = [];
+				var table_content = '<table width="250" cellpadding="10">';
+				for (var i=0; i<myplaces.meteo_stations.length; i++){
+				var location_station = [myplaces.meteo_stations[i].lat, myplaces.meteo_stations[i].long];
+				addMarker_near(location_station,myplaces.meteo_stations[i].place,myplaces.meteo_stations[i].wmo,(myplaces.meteo_stations[i].tt*6371).toFixed(0),i);
+				////////////////////create list
+				var head_table_content = '<table width="250" style="font-weight:bold;text-align:center"><tr><td>' + infowindow + '</td></tr></table>';
+			    table_content = table_content + '<tr><td><div class=baloon_icon style="background-position:0px ' + (-34*i) +'px"></div></td><td><p class=place_table onmouseover=switch_baloons('+ i+ ',1) onmouseout=switch_baloons('+ i +',0) onclick=click_baloons('   +i +',"'+myplaces.meteo_stations[i].wmo+ '")> ' + myplaces.meteo_stations[i].place + ' <br> distance ' + function(){if (document.getElementsByName('group1')[0].checked) {return (myplaces.meteo_stations[i].tt*6371).toFixed(0) + ' km' }else {return (myplaces.meteo_stations[i].tt*6371*0.621).toFixed(0) + ' miles'}}() + '</p></td></tr>';
+				
+				station_extent[i] = [myplaces.meteo_stations[i].long, myplaces.meteo_stations[i].lat];
+				}
+				
+				
+				station_extent.push([lng_global,lat_global]);
+				var ext = ol.extent.boundingExtent(station_extent);
+				ext = ol.proj.transformExtent(ext, 'EPSG:4326', 'EPSG:3857');
+				
+				map.getView().setCenter(ol.proj.fromLonLat([lng_global,lat_global]));
+				map.getView().fit(ext, {
+						size: map.getSize(),
+						duration: 900,
+						padding: [50, 50, 50, 50],
+						});
+				
+				table_content_footer = '<table width="180" align="center"><tr align="center">';
+				for (var i=1;i<6;i++) {
+				if (number_global < 60) {
+				if (i==number_global/10)
+				{
+				table_content_footer = table_content_footer + '<td><b>' + i + '</b></td>'
+				}
+				else {
+				table_content_footer = table_content_footer + "<td><p onClick='number_global="+i*10+";codeLatLng_lite()'>" + i + '</p></td>'
+				}
+				}
+				
+				///////////////////////
+				}
+				table_content_footer = table_content_footer + '</tr></table>';
+				
+				//map.fitBounds(new_bounds);
+				//map.panToBounds(new_bounds);
+				
+				
+               //start of left panel
+				
+				if (document.getElementById('station_content')){
+				if (infowindow){
+				document.getElementById('station_head_table_content').innerHTML = head_table_content;}
+				document.getElementById('station_table_content').innerHTML = table_content;
+				/*var div_footer = document.createElement('div');
+				div_footer.id = 'station_footer_table_content';
+				div_footer.innerHTML = table_content_footer;*/
+				document.getElementById('station_table_content').appendChild(div_footer);
+				}
+				else {
+				table_content = table_content + '</table>';
+				var div_table_content =  document.createElement('div');
+				div_table_content.id = 'station_content';
+				div_table_content.style.position = 'absolute';
+				div_table_content.style.top = '0px';
+				div_table_content.style.height = document.getElementById('map_canvas').style.height;
+				
+				var div_top = document.createElement('div');
+				div_top.id = 'station_head_table_content';
+				div_top.innerHTML = head_table_content;
+				div_top.style.height = 'auto';
+				div_top.style.paddingTop = '10px';
+				div_top.style.paddingBottom = '10px';
+				
+				var div = document.createElement('div');
+				div.id = 'station_table_content';				
+				div.style.overflowY = 'scroll';
+				div.innerHTML = table_content;
+				div.style.position = 'relative';
+				div.style.borderTop = 'black solid 1px';
+				
+				
+				
+				/*var div_footer = document.createElement('div');
+				div_footer.id = 'station_footer_table_content';
+				div_footer.innerHTML = table_content_footer;*/
+				
+				document.getElementById('map_initial').appendChild(div_table_content);
+				document.getElementById('station_content').appendChild(div_top);				
+				div.style.height = (document.getElementById('map_canvas').offsetHeight*1 - document.getElementById('station_head_table_content').offsetHeight*1) +'px';
+				document.getElementById('station_content').appendChild(div);
+				//document.getElementById('station_table_content').appendChild(div_footer);
+				
+				
+				document.getElementById('map_canvas').style.marginLeft = '267px';
+				//end of left panel
+				document.getElementById('lat_long_field').style.marginLeft = '15px';
+					
+				
+				}
+				
+				
+				}
+				else 
+				alert("error Ajax: response text = null")
+			}
+			else
+			alert("error Ajax: status 200 " + this.statusText)
+		}
+		document.getElementById('wait').style.display = 'none'
+				document.getElementById('wait_background').style.width = '0';
+				document.getElementById('wait_background').style.height = '0';
+		
+	}
+	
+request.send(params);
+if (!document.getElementById('wait')){
+var b = document.createElement('div');
+b.id = 'wait_background';
+b.style.position = 'absolute';
+b.style.top = !ie ? document.body.scrollTop +'px' : document.documentElement.scrollTop + 'px';
+b.style.width = (window.innerWidth -16 || document.documentElement.clientWidth) +'px';
+b.style.height = (window.innerHeight -16 || document.documentElement.clientHeight)  + 'px';
+b.style.backgroundColor = 'white';
+b.style.opacity = '0.7';
+document.body.appendChild(b);
+var a = document.createElement('div');
+a.id = 'wait';
+a.style.top = !ie ? document.body.scrollTop + (window.innerHeight || document.documentElement.clientHeight)/2 +'px' : document.documentElement.scrollTop + (window.innerHeight || document.documentElement.clientHeight)/2 +'px';
+a.style.opacity = '1';
+a.innerHTML = '<img src="images/wait.gif" >  wait...'
+b.appendChild(a);
+document.getElementById('wait').style.display = 'block';
+}
+else { document.getElementById('wait').style.display = 'block';
+document.getElementById('wait_background').style.top = !ie ? document.body.scrollTop +'px' : document.documentElement.scrollTop + 'px';
+document.getElementById('wait_background').style.width = (window.innerWidth - 16 || document.documentElement.clientWidth) + 'px';
+document.getElementById('wait_background').style.height = (window.innerHeight - 16 || document.documentElement.clientHeight) + 'px';}
+
+}
+
+
+function meteo_parametres (wmo,ashrae_version,si_ip,i){ // запрос метеопараметров из базы на сервере, если i в промежутке 0..9, то запрос на метеоданные из списка ближайших станций, если i=10 - то это прямой запрос метеоданных по WMO
+var params = "wmo="+wmo+"&ashrae_version="+ashrae_version+"&si_ip="+si_ip;  // параметры для запроса
+//console.log("wmo="+wmo+"&ashrae_version="+ashrae_version+"&si_ip="+si_ip);
+var request = new ajaxRequest();
+
+request.open("POST", "request_meteo_parametres.php", true);
+
+request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+request.onreadystatechange = function()
+	{
+		if (this.readyState == 4) 
+		{
+			if (this.status == 200) 
+			{
+				if (this.responseText != null)
+				{
+				myplace=null;
+				var meteo_response = this.responseText;
+				//console.log("Из фунцкии meteo_parametres "+ meteo_response);
+				//var finish = meteo_response.indexOf('<');
+				//var json_string = meteo_response.slice(0,finish);
+				let json_string = meteo_response.trim();
+				if (json_string.indexOf(']')!=-1){
+				myplace = JSON.parse(json_string);
+				if (myplace.meteo_stations[0].hasOwnProperty('lat')){     
+				 if (i==10){
+					 document.getElementById('lat_long_field').style.marginLeft = '50px';
+					 document.getElementById("info").innerHTML='';
+					 overlay.setPosition(undefined);
+					lat_global='none';
+					lng_global='none';	
+					if (document.getElementById('station_content'))
+					document.getElementById('station_content').remove();
+					document.getElementById('map_canvas').style.marginLeft = '0px';
+					 if (vectorSource) {
+					vectorSource.clear()};
+				 let lat=myplace.meteo_stations[0].lat;
+				 let lng=myplace.meteo_stations[0].long;
+				 var london = new ol.Feature({
+					geometry: new ol.geom.Point(ol.proj.fromLonLat([lng, lat]))
+						});
+
+				london.setStyle(new ol.style.Style({
+					image: new ol.style.Icon({
+					src: 'https://maps.gstatic.com/mapfiles/markers2/red_markers_A_J2.png',
+					anchor: [0.5,1],
+					size: [20,34],
+					offset: [0,340]
+				})
+				}));
+                london.setId("marker_near;"+i+";"+wmo+";"+myplace.meteo_stations[0].lat+";"+myplace.meteo_stations[0].long+";"+myplace.meteo_stations[0].place);
+				
+				vectorSource = new ol.source.Vector({
+				features: [london]
+				});
+
+				vectorLayer = new ol.layer.Vector({
+				source: vectorSource
+				});
+
+				map.addLayer(vectorLayer);
+				map.getView().setCenter(ol.proj.fromLonLat([lng, lat]));
+				click_baloons (i,wmo);
+				 }
+				 runOutputResult(wmo,ashrae_version,si_ip,i);
+				k=1;
+				 }
+				}
+				 else  {
+				 alert("WMO set incorrectly")}
+				 
+				}
+				else 
+				alert("error Ajax: response text = null")
+			}
+			else
+			alert("error Ajax: status 200 " + this.statusText)
+		}
+			document.getElementById('wait').style.display = 'none'
+				document.getElementById('wait_background').style.width = '0';
+				document.getElementById('wait_background').style.height = '0';
+		
+	}
+	
+request.send(params);
+if (!document.getElementById('wait')){
+var b = document.createElement('div');
+b.id = 'wait_background';
+b.style.position = 'absolute';
+b.style.top = !ie ? document.body.scrollTop +'px' : document.documentElement.scrollTop + 'px';
+b.style.width = (window.innerWidth -16 || document.documentElement.clientWidth) +'px';
+b.style.height = (window.innerHeight -16 || document.documentElement.clientHeight)  + 'px';
+b.style.background = 'white';
+b.style.opacity = '0.7';
+document.body.appendChild(b);
+var a = document.createElement('div');
+a.id = 'wait';
+a.style.top = !ie ? document.body.scrollTop + (window.innerHeight || document.documentElement.clientHeight)/2 +'px' : document.documentElement.scrollTop + (window.innerHeight || document.documentElement.clientHeight)/2 +'px';
+a.style.opacity = '1';
+a.innerHTML = '<img src="images/wait.gif" >  wait...'
+b.appendChild(a);
+document.getElementById('wait').style.display = 'block';
+}
+else { 
+
+
+document.getElementById('wait').style.display = 'block';
+document.getElementById('wait_background').style.top = !ie ? document.body.scrollTop +'px' : document.documentElement.scrollTop + 'px';
+document.getElementById('wait_background').style.width = (window.innerWidth -16 || document.documentElement.clientWidth) + 'px';
+document.getElementById('wait_background').style.height = (window.innerHeight -16 || document.documentElement.clientHeight) + 'px';}
+
+}
+
+
+function ajaxRequest()
+{
+var request = new XMLHttpRequest();
+return request;
+}
+
+var ww = window.document;
+
+
+function print() { //??? ??????????
+if (getCookie('si_ip')=="IP"){
+var info_footer = '<table><tr><td>CDDn</td><td> Cooling degree-days base n°F, °F-day</td><td>Lat</td> <td>Latitude, °</td><td>Period</td><td> Years used to calculate the design conditions</td></tr><tr><td>CDHn</td><td> Cooling degree-hours base n°F, °F-hour</td><td>Long</td><td> Longitude, °</td><td>Sd</td><td> Standard deviation of daily average temperature, °F</td></tr> <tr><td>DB</td><td> Dry bulb temperature, °F</td><td>MCDB</td><td> Mean coincident dry bulb temperature, °F</td><td>StdP</td><td>Standard pressure at station elevation, psi</td></tr> <tr><td>DP</td><td> Dew point temperature, °F</td><td>MCDBR</td><td>Mean coincident dry bulb temp. range, °F</td><td>taub</td><td>Clear sky optical depth for beam irradiance</td></tr> <tr><td>Ebn,noon</td><td rowspan=2> Clear sky beam normal and diffuse horizontal irradiances at solar noon, Btu/h/ft2</td><td>MCDP</td><td>Mean coincident dew point temperature, °F</td><td>taud</td><td>Clear sky optical depth for diffuse irradiance</td></tr> <tr><td>Edh,noon</td><td>MCWB</td><td>Mean coincident wet bulb temperature, °F</td><td>Tavg</td><td>Average temperature, °F</td></tr> <tr><td>Elev</td><td> Elevation, ft</td><td>MCWBR</td><td>Mean coincident wet bulb temp. range, °F</td><td>Time Zone</td><td>Hours ahead or behind UTC</td></tr> <tr><td>Enth</td><td> Enthalpy, Btu/lb</td><td>MCWS</td><td>Mean coincident wind speed, mph</td><td>WB</td><td>Wet bulb temperature, °F</td></tr> <tr><td>HDDn</td><td> Heating degree-days base n°F, °F-day</td><td>MDBR</td><td>Mean dry bulb temp. range, °F</td><td>Hours 8/4 & 55/69</td><td>Number of hours between 8 a.m. and 4 p.m with DB between 55 and 69 °F</td></tr> <tr><td>PCWD</td><td rowspan=2> Prevailing coincident wind direction, °,0 = North, 90 = East</td><td>WS</td><td>Wind speed, mph</td><td>HR</td><td>Humidity ratio, grains of moisture per lb of dry air</td></tr> </table>';
+}
+if (getCookie('si_ip')=="SI")
+{
+	var info_footer = '<table><tr><td>CDDn</td><td> Cooling degree-days base n°C, °C-day</td><td>Lat</td> <td>Latitude, °</td><td>Period</td><td> Years used to calculate the design conditions</td></tr><tr><td>CDHn</td><td> Cooling degree-hours base n°C, °C-hour</td><td>Long</td><td> Longitude, °</td><td>Sd</td><td> Standard deviation of daily average temperature, °C</td></tr> <tr><td>DB</td><td> Dry bulb temperature, °C</td><td>MCDB</td><td> Mean coincident dry bulb temperature, °C</td><td>StdP</td><td>Standard pressure at station elevation, kPa</td></tr> <tr><td>DP</td><td> Dew point temperature, °C</td><td>MCDBR</td><td>Mean coincident dry bulb temp. range, °C</td><td>taub</td><td>Clear sky optical depth for beam irradiance</td></tr> <tr><td>Ebn,noon</td><td rowspan=2> Clear sky beam normal and diffuse horizontal irradiances at solar noon, W/m2</td><td>MCDP</td><td>Mean coincident dew point temperature, °C</td><td>taud</td><td>Clear sky optical depth for diffuse irradiance</td></tr> <tr><td>Edh,noon</td><td>MCWB</td><td>Mean coincident wet bulb temperature, °C</td><td>Tavg</td><td>Average temperature, °C</td></tr> <tr><td>Elev</td><td> Elevation, m</td><td>MCWBR</td><td>Mean coincident wet bulb temp. range, °C</td><td>Time Zone</td><td>Hours ahead or behind UTC</td></tr> <tr><td>Enth</td><td> Enthalpy, kJ/kg</td><td>MCWS</td><td>Mean coincident wind speed, m/s</td><td>WB</td><td>Wet bulb temperature, °C</td></tr> <tr><td>HDDn</td><td> Heating degree-days base n°C, °C-day</td><td>MDBR</td><td>Mean dry bulb temp. range, °C</td><td>Hours 8/4 & 12.8/20.6</td><td>Number of hours between 8 a.m. and 4 p.m with DB between 12.8 and 20.6 °C</td></tr> <tr><td>PCWD</td><td rowspan=2> Prevailing coincident wind direction, °,0 = North, 90 = East</td><td>WS</td><td>Wind speed, m/s</td><td>HR</td><td>Humidity ratio, g of moisture per kg of dry air</td></tr> </table>';
+}
+
+var n = document.getElementById("info").innerHTML;
+var w = window.open( "","smallwin",
+"width=1000,height=650,status=yes,resizable=yes,scrollbars=yes");
+var d = w.document;
+
+newdiv=d.body.appendChild (d.createElement ('div'));
+newfooter=d.body.appendChild (d.createElement ('div'));
+newdiv.setAttribute ('id', 'tt');
+newfooter.setAttribute ('id', 'footer');
+//d.write("<div id = tt></div>");
+style = d.createElement('link');
+    style.rel = 'stylesheet';
+    style.type = 'text/css';
+    style.href = 'css/ashrae_meteo_print.css';	
+	var k = d.getElementsByTagName('head')[0].appendChild(style);
+	d.getElementById('tt').innerHTML = n;
+	d.getElementById('footer').innerHTML = info_footer;
+}
+
+
+
+function test3(){ // ??? ??????
+if (document.getElementById("test3").style.visibility == "visible") { document.getElementById("test3").style.visibility = "hidden"; }
+else document.getElementById("test3").style.visibility = "visible" ;
+ 
+}
+
+
+
+
+
+
+
+
+
+
+ function error_IPSI(si_ip_cookie) { //??????? ??? check ip si
+ 	if (si_ip_cookie != getCookie('si_ip')) {
+		deleteCookie('si_ip');
+		setCookie('si_ip',si_ip_cookie,{'expires': 31104000,'path':'/' });
+	} 
+    if (typeof window.uncompare === 'function') {
+        uncompare();
+        document.querySelectorAll('.compare-btn').forEach(btn => {
+            btn.textContent = 'Compare';
+            btn.dataset.state = 'compare';
+        });
+    }
+if (lat_global!='none' && lng_global!='none') {
+codeLatLng(lat_global, lng_global,1);
+}
+//if (document.getElementsByName('group1')[0].checked
+if (document.getElementById('info').firstElementChild) {
+var wmo_number = document.getElementById('info').firstElementChild.id.split('_');
+meteo_parametres (wmo_number[0],getCookie('ashrae_version'),si_ip_cookie,wmo_number[1])
+}
+if ($( "#psi_calc" ).dialog('isOpen')){
+show_hide_calc(1);
+}
+ }
+
+ 
+
+
+
+ 
+
+ 
+ dd = function (element) {
+ if (document.getElementsByClassName('show_picked_line_1')[0]) {document.getElementsByClassName('show_picked_line_1')[0].style.display = 'none';document.getElementsByClassName('show_picked_line_1')[0].className = 'show_picked_line';}
+if(element.firstChild.className == 'show_picked_line')
+element.firstChild.style.display='block';
+}
+
+
+ dd_1 = function (element) {
+ if (element.firstChild.style.display=='block'){
+ element.firstChild.className = 'show_picked_line_1';
+ document.getElementById('container').onmousedown =  function () {if (document.getElementsByClassName('show_picked_line_1')[0]){document.getElementsByClassName('show_picked_line_1')[0].style.display = 'none';document.getElementsByClassName('show_picked_line_1')[0].className = 'show_picked_line';}};
+}
+}
+
+generate_link = function (element) {
+if (document.getElementsByName('group1')[0].checked) {var si_ip = 0}
+else {var si_ip = 1}
+if(lat_global == 0) {lat_global = lat_global.toFixed(2)}
+if(lng_global == 0) {lng_global = lng_global.toFixed(2)}
+var link = "http://ashrae-meteo.info/index.php?lat="+myplace.meteo_stations[0].lat+"&lng="+myplace.meteo_stations[0].long+"&place=''&wmo=" + myplace.meteo_stations[0].wmo+"&si_ip="+getCookie("si_ip")+"&ashrae_version=" + getCookie("ashrae_version")
+var c = document.createElement('div');
+c.className = 'show_picked_line';
+c.id =  'map_link';
+c.innerHTML = link;
+element.insertBefore(c,element.firstChild);
+dd(element);
+dd_1(element);
+}
+
+function check_ashrae_version(ver, force){
+	var current = getCookie('ashrae_version');
+	if (!force && ver == current) {
+		return;
+	}
+	if (document.getElementById('info').firstElementChild){
+		let prev_wmo = document.getElementById('info').firstElementChild.id.split('_')[0];
+		document.getElementById("info").innerHTML='';
+		if (lat_global=='none' && lng_global=='none'){
+			fusion_station( '','' ,'' ,prev_wmo, ver)	
+		}
+	}
+	clusterization(ver);
+	if (ver != current) {
+		deleteCookie('ashrae_version');
+		setCookie('ashrae_version',ver,{'expires':31104000,'path':'/'});
+	}
+		
+	//allstation.setMap(null);
+	/*if (ver == 2009){
+allstation = new google.maps.FusionTablesLayer({query: {
+    from: '1N-m39q9YtYRK4nvuM4tiK0_6t2FAC5O2yc_Dpv4'}});}
+	if (ver == 2013) {allstation = new google.maps.FusionTablesLayer({query: {
+    from: '1FEttJL-C1DVXdmHIwPjW2bvtQy9JqnCK327w642u'}});}
+	if (ver == 2017) {allstation = new google.maps.FusionTablesLayer({query: {
+    from: '11h6aR26NaCZkBEenbGkNMRuZoJMaKut7kNSTwr9M'}});}
+	  google.maps.event.addListener(allstation, 'click', function(event){event.infoWindowHtml='Place: '+ event.row.place.value+ '<br> Latitude: ' + event.row.lat.value + '<br> Longitude: ' + event.row.lng.value+'<br> WMO: ' + event.row.wmo.value+"<p onClick =fusion_station(" + event.latLng.lat()+ ','+event.latLng.lng()+ ",'','"+event.row.wmo.value+"'"+') style="color:blue;cursor:pointer;">Show station data</p>'});
+
+	allstation.setMap(map);*/
+	 if (lat_global!='none' && lng_global!='none') {
+codeLatLng(lat_global, lng_global,0,1);
+	 }
+
+}
+
+function show_hide_help_window(){
+	setCookie("help_window","on",{'expires':31104000,'path':'/'})
+	if (!document.getElementById("help_window")){
+	var help_window_text = "<p align='justify'>Just right click on site on the map and get nearest meteostations!</p>"
+	var help_window_text_elem = document.createElement('div');
+	help_window_text_elem.id = 'help_window';
+	help_window_text_elem.innerHTML = help_window_text;
+	document.getElementById('container').appendChild(help_window_text_elem);
+	$( "#help_window" ).dialog({title:"?",position:{my:"center center",at:"center center ",of:document.getElementById('map_initial')}, close: function( event, ui ) {setCookie("help_window","off",{'expires':31104000,'path':'/'})}});
+}
+
+else {$( "#help_window" ).dialog("open");
+}
+}
+
+function show_hide_attention_window(){
+	setCookie("attention_2","on",{'expires':31104000,'path':'/'})
+	if (!document.getElementById("attention_window")){
+	var attention_window_text = "<p align='justify'>Dear users of ashrae-meteo.info, in connection with the increase in prices for Google Maps, I had to turn them off. We are working on the implementation of the OpenStreetMap which is free to use and hope to finish soon. Thank you for your patience!</p>"
+	var attention_window_text_elem = document.createElement('div');
+	attention_window_text_elem.id = 'attention_window';
+	attention_window_text_elem.innerHTML = attention_window_text;
+	document.getElementById('container').appendChild(attention_window_text_elem);
+	$( "#attention_window" ).dialog({title:"Attention",position:{my:"center center",at:"center center ",of:document.getElementById('map_initial')}, close: function( event, ui ) {setCookie("attention_2","off",{'expires':31104000,'path':'/'})}});
+}
+
+else {$( "#attention_window" ).dialog("open");
+}
+}
+
+
+function interview(){ 
+	setCookie("inter","on",{'expires':31104000,'path':'/'})
+	if (!document.getElementById("inter_window")){
+	var help_window_text = "<p align='justify'>Please answer a few questions to help me in the creation of mobile applications Ashrae-meteo.app <a href='https://goo.gl/forms/iWl5TyQBkt5c88902' target='_blank'>https://goo.gl/forms/iWl5TyQBkt5c88902</a></p>"
+	var help_window_text_elem = document.createElement('div');
+	help_window_text_elem.id = 'inter_window';
+	help_window_text_elem.innerHTML = help_window_text;
+	document.getElementById('container').appendChild(help_window_text_elem);
+	$( "#inter_window" ).dialog({title:"Mobile application",width:'500',position:{my:"center center",at:"center center ",of:document.getElementById('map_initial')}, close: function( event, ui ) {setCookie("inter","off",{'expires':31104000,'path':'/'})}});
+}
+
+else {$( "#inter_window" ).dialog("open");
+}
+}
+
+
+$(document).ready(function () {	
+	
+	$('#nav li').hover(
+		function () {
+			//show its submenu
+			$('ul', this).stop().slideDown(100);
+
+		}, 
+		function () {
+			//hide its submenu
+			$('ul', this).stop().slideUp(100);			
+		}
+	);
+	
+	/*для функций запускающихся по значения cookies
+	if (getCookie('inter')=='on'||!getCookie('inter')){
+	interview();
+	}*/
+	clusterization();
+
+  $("#checkbox-nested-1").on("change", function() {
+    if ($(this).is(":checked")) {
+      $("#label").css("background", "#007fff");
+	 clusterization('',1);
+	  setCookie("show_station","on",{'expires':31104000,'path':'/'})
+    } else {
+      $("#label").css("background", "inherit");
+		map.removeLayer(clusters);
+	  setCookie("show_station","off",{'expires':31104000,'path':'/'})
+    }
+  });
+	
+});
+
+$(function() {
+    initialize() ;
+	});
+
+</script>
+
+
+
+
+
+
+<link type="text/css" rel="stylesheet" media="all" href="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/ashrae_meteo.css">
+<link type="text/css" rel="stylesheet" media="all" href="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/tooltip.css">
+<script type="text/javascript" charset="UTF-8" src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/ice.js.下载" async=""></script><style>
+        .trend_up { color:green; cursor:pointer; margin-left:6px; }
+        .trend_down { color:red; cursor:pointer; margin-left:6px; }
+        .trend_same { color:gray; cursor:pointer; margin-left:6px; }
+        .trend_missing { display:inline-block; width:10px; height:10px; border:1px solid #777; border-radius:50%; margin-left:6px; vertical-align:middle; cursor:pointer; }
+        .compare-legend { position:absolute; display:flex; flex-direction:column; align-items:flex-start; gap:4px; font-size:12px; color:#333; background:#fff; padding:6px 8px; border:1px solid #ccc; border-radius:6px; box-shadow:0 1px 4px rgba(0,0,0,0.15); z-index:9999; }
+        .compare-legend .legend-title { font-weight:600; width:100%; text-align:center; align-self:center; }
+        .compare-legend .legend-row { display:inline-flex; gap:8px; align-items:center; flex-wrap:wrap; }
+        .compare-legend .legend-item { display:inline-flex; align-items:center; gap:4px; }
+        .compare-legend .legend-item .trend_up,
+        .compare-legend .legend-item .trend_down,
+        .compare-legend .legend-item .trend_same,
+        .compare-legend .legend-item .trend_missing,
+        .compare-legend .legend-item .trend_non_numeric { cursor:default; pointer-events:none; }
+        .compare-legend .legend-note { font-size:11px; color:#666; align-self:center; text-align:center; width:100%; }
+        .compare-btn-bar { position:relative; min-height:36px; }
+        .compare-btn-anchor { position:relative; min-height:36px; }
+        .compare-btn-floating { position:absolute; z-index:9998; }
+
+        .chart_popup {
+            position:fixed; left:0; top:0; right:0; bottom:0;
+            background:rgba(0,0,0,0.5);
+            display:flex; justify-content:center; align-items:center;
+            z-index:99999;
+        }
+        .chart_box {
+            background:#fff; padding:20px; border-radius:10px;
+            width:450px;
+        }
+    </style><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><script type="text/javascript" async="" charset="UTF-8" src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/lcmanage"></script><script type="text/javascript" async="" charset="UTF-8" src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/in_search.js.下载"></script><script src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/f(2).txt"></script><style type="text/css"></style><script type="text/javascript" async="" charset="UTF-8" src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/dcl.htm"></script></head>   
+
+<body data-new-gr-c-s-check-loaded="14.1299.0" data-gr-ext-installed="">
+
+
+
+
+
+
+
+
+
+<div id="container" style="min-width:900px;height:auto">
+<p align="center">ASHRAE CLIMATIC DESIGN CONDITIONS 2009/2013/2017/2021/2025</p>
+
+<div align="center">
+		
+		<div id="radio">
+		  			<input type="radio" id="radio2009" name="radio" value="2009" onchange="check_ashrae_version(2009)" class="ui-checkboxradio ui-helper-hidden-accessible">
+			<label for="radio2009" class="ui-checkboxradio-label ui-corner-all ui-button ui-widget ui-checkboxradio-radio-label"><span class="ui-checkboxradio-icon ui-corner-all ui-icon ui-icon-background ui-icon-blank"></span><span class="ui-checkboxradio-icon-space"> </span>2009</label>
+		  			<input type="radio" id="radio2013" name="radio" value="2013" onchange="check_ashrae_version(2013)" class="ui-checkboxradio ui-helper-hidden-accessible">
+			<label for="radio2013" class="ui-checkboxradio-label ui-corner-all ui-button ui-widget ui-checkboxradio-radio-label"><span class="ui-checkboxradio-icon ui-corner-all ui-icon ui-icon-background ui-icon-blank"></span><span class="ui-checkboxradio-icon-space"> </span>2013</label>
+		  			<input type="radio" id="radio2017" name="radio" value="2017" onchange="check_ashrae_version(2017)" checked="" class="ui-checkboxradio ui-helper-hidden-accessible">
+			<label for="radio2017" class="ui-checkboxradio-label ui-corner-all ui-button ui-widget ui-checkboxradio-radio-label"><span class="ui-checkboxradio-icon ui-corner-all ui-icon ui-icon-background ui-icon-blank"></span><span class="ui-checkboxradio-icon-space"> </span>2017</label>
+		  			<input type="radio" id="radio2021" name="radio" value="2021" onchange="check_ashrae_version(2021)" class="ui-checkboxradio ui-helper-hidden-accessible">
+			<label for="radio2021" class="ui-checkboxradio-label ui-corner-all ui-button ui-widget ui-checkboxradio-radio-label ui-checkboxradio-checked ui-state-active"><span class="ui-checkboxradio-icon ui-corner-all ui-icon ui-icon-background ui-icon-blank"></span><span class="ui-checkboxradio-icon-space"> </span>2021</label>
+		  			<input type="radio" id="radio2025" name="radio" value="2025" onchange="check_ashrae_version(2025)" class="ui-checkboxradio ui-helper-hidden-accessible">
+			<label for="radio2025" class="ui-checkboxradio-label ui-corner-all ui-button ui-widget ui-checkboxradio-radio-label"><span class="ui-checkboxradio-icon ui-corner-all ui-icon ui-icon-background ui-icon-blank"></span><span class="ui-checkboxradio-icon-space"> </span>2025</label>
+		  </div>
+
+</div>
+<script type="text/javascript">
+$('[name="radio"]').checkboxradio()
+$("#radioset").buttonset()
+</script>
+
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<ul id="nav" style="height:38px;background: #000 url(/images/bg-nav.gif) top left repeat-x;">
+	<li><a href="https://ashrae-meteo.info/v3.0/index.php">Map</a></li>
+	<li><a href="https://ashrae-meteo.info/v3.0/#">Stations</a>
+		<ul>
+			<li><a href="https://ashrae-meteo.info/v3.0/places.php?continent=Asia" target="_blank">Asia</a></li>
+			<li><a href="https://ashrae-meteo.info/v3.0/places.php?continent=North%20America" target="_blank">North America</a></li>
+			<li><a href="https://ashrae-meteo.info/v3.0/places.php?continent=Latin%20America" target="blank">Latin America</a></li>
+			<li><a href="https://ashrae-meteo.info/v3.0/places.php?continent=Australia%20and%20Oceania" target="blank">Australia and Oceania</a></li>
+			<li><a href="https://ashrae-meteo.info/v3.0/places.php?continent=Europe" target="blank">Europe</a></li>
+			<li><a href="https://ashrae-meteo.info/v3.0/places.php?continent=Africa" target="blank">Africa</a></li>
+			<li><a href="https://ashrae-meteo.info/v3.0/places.php?continent=Antarctica" target="blank">Antarctica</a></li>
+		</ul>
+	</li>
+	<li><a href="https://ashrae-meteo.info/v3.0/#">Standarts</a>
+	<ul>
+		<li id="help"><a href="https://ashrae-meteo.info/v3.0/help.php">ASHRAE Climatic Design Conditions</a></li>
+        <li id="help"><a href="https://ashrae-meteo.info/v3.0/help_IECC.php">2021 IECC</a></li>
+	</ul>
+    </li>	
+	<li><a href="https://ashrae-meteo.info/v3.0/#" onclick="show_hide_calc()" style="padding-top:5px;height:33px" :="">Psychrometric Calculator</a>
+	</li>
+<li>
+
+	<a href="https://ashrae-meteo.info/v3.0/#" class="burgundy-button">
+
+	Allday HVAC CALC
+	</a>
+    <ul>
+        <li id="help"><a href="https://calc.ashrae-meteo.info/" target="_blank">WEB</a></li>
+        <li id="help"><a href="https://apps.apple.com/us/app/allday-hvac-calc/id6446276144" target="_blank">IOS</a></li>
+        <li id="help"><a href="https://play.google.com/store/apps/details?id=ws.tilda.dmitriipankov.hvaccalc" target="_blank">Android</a></li>
+        <li id="help"><a href="https://apps.microsoft.com/detail/9NZQ469Q86ZZ" target="_blank">Windows</a></li>
+    </ul>
+</li>
+
+<li>
+
+	<a href="https://ashrae-meteo.info/v3.0/#">
+
+	Small Notes
+	</a>
+    <ul style="display: none; height: 82px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
+        <li id="help"><a href="https://ashrae-meteo.info/v3.0/notes/water_density_anomaly.php" target="_blank">Water’s Density Anomaly</a></li>
+        <li id="help"><a href="https://ashrae-meteo.info/v3.0/notes/water_air_viscosity.php" target="_blank">Viscosity of water and air</a></li>
+    </ul>
+</li>
+		
+   
+	<div style="float:left;position:relative;margin-left:10px;margin-right:10px;"><p style="margin:0px;padding-left:4px;color:white;">SI</p><input id="unit-si" type="radio" name="group1" value="SI" data-unit="SI" onchange="error_IPSI(&#39;SI&#39;)" checked="checked"> </div>
+<div style="float:left;position:relative;margin-right:10px;"><p style="margin:0px;padding-left:4px;color:white;">IP</p><input id="unit-ip" type="radio" name="group1" value="IP" data-unit="IP" onchange="error_IPSI(&#39;IP&#39;)"></div>
+
+<div style="display: flex; padding-left: 15px;align-items: center;background-color:  #000 url(/images/bg-nav.gif) top left repeat-x; height: 38px;">
+<label for="checkbox-nested-1" id="label" style="margin: 0; padding-left: 4px; color: white; background:inherit ; border: none" ;="" class="ui-checkboxradio-label ui-corner-all ui-button ui-widget"><span class="ui-checkboxradio-icon ui-corner-all ui-icon ui-icon-background ui-icon-blank"></span><span class="ui-checkboxradio-icon-space"> </span> Show all station</label> <input type="checkbox" name="checkbox-nested-1" id="checkbox-nested-1" style="margin-left: 4px;" class="ui-checkboxradio ui-helper-hidden-accessible"><script type="text/javascript">
+  $( "#checkbox-nested-1" ).checkboxradio();	
+</script>  
+</div>
+
+</ul>
+
+<div class="clear"></div>
+
+
+
+
+
+
+<div id="map_initial" style="min-width:900px;border-top:black solid 1px;border-bottom:black solid 1px;position:relative;">
+<div id="lat_long_field" style="position: absolute; z-index: 100; margin-left: 15px; margin-top: 10px;"><input placeholder="Lat&amp;lon (xx.xx;yy.yy) or WMO" id="address_st" type="textbox" size="28" onchange="read_string()"></div>
+
+
+
+<div style="text-align:center;position:absolute;z-index:100;bottom:0px;width:50%;left:25%"><table align="center" style="background-color:rgba(241,209,52,0.7);border-spacing:2px">
+<tbody><tr>
+  <td style="vertical-align: middle">Just right click</td>
+  <td style="vertical-align: middle"><img style="vertical-align: middle" src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/Mouse Right Click.png" width="23" height="23"></td>
+  <td style="vertical-align: middle">on site on the map and get nearest weather stations!</td>
+</tr></tbody></table>
+</div>
+<div id="map_canvas" style="height: 769.2px; margin-left: 267px;"><div class="ol-viewport" style="position: relative; overflow: hidden; width: 100%; height: 100%;"><div class="ol-unselectable ol-layers" style="position: absolute; width: 100%; height: 100%; z-index: 0;"><div class="ol-layer" style="position: absolute; width: 100%; height: 100%;"><canvas width="2525" height="769" style="position: absolute; left: 0px; transform-origin: left top; transform: matrix(1, 0, 0, 1, 0, 0);"></canvas></div></div><div class="ol-overlaycontainer" style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"></div><div class="ol-overlaycontainer-stopevent" style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"><div class="ol-overlay-container ol-selectable" style="position: absolute; pointer-events: auto; transform: translate(0%, 0%) translate(1267px, 342px);"><div id="popup" class="ol-popup">
+      <a href="https://ashrae-meteo.info/v3.0/#" id="popup-closer" class="ol-popup-closer"></a>
+      <div id="popup-content"><p>You clicked here:</p><b>QUEBEC CITY BEAUPORT, QC, CANADA</b></div>
+    </div></div><div class="ol-zoom ol-unselectable ol-control" style="pointer-events: auto;"><button class="ol-zoom-in" type="button" title="Zoom in">+</button><button class="ol-zoom-out" type="button" title="Zoom out">–</button></div><div class="ol-rotate ol-unselectable ol-control ol-hidden" style="pointer-events: auto;"><button class="ol-rotate-reset" type="button" title="Reset rotation"><span class="ol-compass" style="transform: rotate(0rad);">⇧</span></button></div><div class="ol-attribution ol-unselectable ol-control ol-uncollapsible" style="pointer-events: auto;"><button type="button" aria-expanded="true" title="Attributions"><span class="ol-attribution-collapse">›</span></button><ul><li>© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors.</li></ul></div><div id="gcd-container" class="ol-geocoder gcd-gl-container" style="pointer-events: auto;">
+  <div class="gcd-gl-control ol-control">
+    <button type="button" id="gcd-button-control" class="gcd-gl-btn"></button>
+    <input type="text" id="gcd-input-query" class="gcd-gl-input" autocomplete="off" placeholder="Search for ...">
+    <a id="gcd-input-reset" class="gcd-gl-reset gcd-hidden"></a>
+  </div>
+  <ul class="gcd-gl-result"></ul>
+</div></div></div></div>
+<div id="station_content" style="position: absolute; top: 0px; height: 769.2px;"><div id="station_head_table_content" style="height: auto; padding-top: 10px; padding-bottom: 10px;"><table width="250" style="font-weight:bold;text-align:center"><tbody><tr><td>(-71.21,  -71.21)</td></tr></tbody></table></div><div id="station_table_content" style="overflow-y: scroll; position: relative; border-top: 1px solid black; height: 719px;"><table width="250" cellpadding="10"><tbody><tr><td><div class="baloon_icon" style="background-position:0px 0px"></div></td><td><p class="place_table" onmouseover="switch_baloons(0,1)" onmouseout="switch_baloons(0,0)" onclick="click_baloons(0,&quot;715780&quot;)"> QUEBEC CITY BEAUPORT, QC, CANADA <br> distance 3 km</p></td></tr><tr><td><div class="baloon_icon" style="background-position:0px -34px"></div></td><td><p class="place_table" onmouseover="switch_baloons(1,1)" onmouseout="switch_baloons(1,0)" onclick="click_baloons(1,&quot;713920&quot;)"> QUEBEC CITY SAINTE-FOY, QC, CANADA <br> distance 7 km</p></td></tr><tr><td><div class="baloon_icon" style="background-position:0px -68px"></div></td><td><p class="place_table" onmouseover="switch_baloons(2,1)" onmouseout="switch_baloons(2,0)" onclick="click_baloons(2,&quot;717080&quot;)"> QUEBEC CITY JEAN LESAGE, QC, CANADA <br> distance 13 km</p></td></tr><tr><td><div class="baloon_icon" style="background-position:0px -102px"></div></td><td><p class="place_table" onmouseover="switch_baloons(3,1)" onmouseout="switch_baloons(3,0)" onclick="click_baloons(3,&quot;717160&quot;)"> CFB VALCARTIER, QC, CANADA <br> distance 24 km</p></td></tr><tr><td><div class="baloon_icon" style="background-position:0px -136px"></div></td><td><p class="place_table" onmouseover="switch_baloons(4,1)" onmouseout="switch_baloons(4,0)" onclick="click_baloons(4,&quot;714240&quot;)"> ILE D'ORLEANS, QC, CANADA <br> distance 37 km</p></td></tr><tr><td><div class="baloon_icon" style="background-position:0px -170px"></div></td><td><p class="place_table" onmouseover="switch_baloons(5,1)" onmouseout="switch_baloons(5,0)" onclick="click_baloons(5,&quot;713840&quot;)"> CAP-TOURMENTE, QC, CANADA <br> distance 44 km</p></td></tr><tr><td><div class="baloon_icon" style="background-position:0px -204px"></div></td><td><p class="place_table" onmouseover="switch_baloons(6,1)" onmouseout="switch_baloons(6,0)" onclick="click_baloons(6,&quot;712120&quot;)"> FORET MONTMORENCY, QC, CANADA <br> distance 56 km</p></td></tr><tr><td><div class="baloon_icon" style="background-position:0px -238px"></div></td><td><p class="place_table" onmouseover="switch_baloons(7,1)" onmouseout="switch_baloons(7,0)" onclick="click_baloons(7,&quot;713890&quot;)"> DESCHAMBAULT, QC, CANADA <br> distance 60 km</p></td></tr><tr><td><div class="baloon_icon" style="background-position:0px -272px"></div></td><td><p class="place_table" onmouseover="switch_baloons(8,1)" onmouseout="switch_baloons(8,0)" onclick="click_baloons(8,&quot;713190&quot;)"> CHARLEVOIX MRC, QC, CANADA <br> distance 67 km</p></td></tr><tr><td><div class="baloon_icon" style="background-position:0px -306px"></div></td><td><p class="place_table" onmouseover="switch_baloons(9,1)" onmouseout="switch_baloons(9,0)" onclick="click_baloons(9,&quot;713230&quot;)"> BEAUCEVILLE, QC, CANADA <br> distance 74 km</p></td></tr></tbody></table></div></div></div>
+<div style="margin:auto;width:728px;margin-top:10px;margin-bottom:10px"> 
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-7417449367225322";
+/* ashrae-meteo */
+google_ad_slot = "2058466697";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/f(3).txt">
+</script><ins class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-7417449367225322" data-ad-height="90" data-ad-slot="2058466697" data-ad-width="728" data-adsbygoogle-status="done" style="display: inline-block; width: 728px; height: 90px;" data-ad-status="unfilled"><div id="aswift_0_host" style="border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; height: 90px; width: 728px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:728px;height:90px;min-height:auto;max-height:none;min-width:auto;max-width:none;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/ads.html" data-google-container-id="a!1" tabindex="0" title="Advertisement" aria-label="Advertisement" data-load-complete="true"></iframe></div></ins>
+
+</div>
+
+<div id="error"></div>
+<div id="info" style="margin-right:55px">
+
+				<div id="715780_0"> <table rules="all" border="0" cellspacing="0" bordercolor="black" align="center" style="border-collapse:collapse"> <colgroup><col width="75" span="16">
+
+				</colgroup><tbody><tr class="brd2"><td colspan="16" style="text-align:center;"></td></tr><tr class="brd2"><td colspan="15" style="text-align:left;">2021 ASHRAE Handbook - Foundamentals (SI)</td><td colspan="1" style="text-align: right; min-height: 23px;" id="compare_btn_715780_0_anchor" class="compare-btn-anchor">
+								
+							</td></tr><tr class="brd2"><td colspan="15" align="center" style="padding-bottom:10px"><div class="baloon_icon" style="display:inline-block;background-position:0px 0px;position: relative;right: 10" ;=""></div> <b>QUEBEC CITY BEAUPORT, QC, CANADA (<span class="tooltip">WMO</span>: 715780)</b></td></tr><tr class="brd2" align="center"><td colspan="2" style="text-align:center;"><span class="tooltip">Lat:</span> <b>46.8371N</b></td><td colspan="2" style="text-align:center;">Lon: <b>71.1973W</b></td><td colspan="2" style="text-align:center;"><span class="tooltip">Elev:</span> <b>10</b></td><td colspan="3" style="text-align:center;"><span class="tooltip">StdP:</span> <b>101.20</b></td><td colspan="3" style="text-align:center;"><span class="tooltip">Time zone:</span> <b>-5.00 (NAE)</b></td><td colspan="2" style="text-align:center;"><span class="tooltip">Period:</span> <b>99-13</b></td><td colspan="2" style="text-align:center;"><span class="tooltip">WBAN</span>: <b>99999</b></td></tr>
+
+				<tr class="greentext"><td colspan="16" style="text-align:left;">Annual Heating, Humidification, and Ventilation Design Conditions</td></tr>
+					<tr class="brd5" height="5">
+						<td colspan="16" style="border-bottom-color:black"></td>
+					</tr>
+				</tbody><tbody align="center"><tr><td rowspan="3" style="text-align:center;">Coldest Month</td><td rowspan="2" colspan="2" style="text-align:center;">Heating <span class="tooltip">DB</span></td><td colspan="6" style="text-align:center;">Humidification <span class="tooltip">DP</span>/<span class="tooltip">MCDB</span> and <span class="tooltip">HR</span></td><td colspan="4" style="text-align:center;">Coldest month <span class="tooltip">WS</span>/<span class="tooltip">MCDB</span></td><td rowspan="2" colspan="2" style="text-align:center;"><span class="tooltip">MCWS</span>/<span class="tooltip">PCWD</span> to 99.6% <span class="tooltip">DB</span></td><td rowspan="3" style="text-align:center;"><span class="tooltip">WSF</span></td></tr><tr><td colspan="3" style="text-align:center;">99.6%</td><td colspan="3" style="text-align:center;">99%</td><td colspan="2" style="text-align:center;">0.4%</td><td colspan="2" style="text-align:center;">1%</td></tr><tr><td style="text-align:center;">99.6%</td><td style="text-align:center;">99%</td><td style="text-align:center;"><span class="tooltip">DP</span></td><td style="text-align:center;"><span class="tooltip">HR</span></td><td style="text-align:center;"><span class="tooltip">MCDB</span></td><td style="text-align:center;"><span class="tooltip">DP</span></td><td style="text-align:center;"><span class="tooltip">HR</span></td><td style="text-align:center;"><span class="tooltip">MCDB</span></td><td style="text-align:center;"><span class="tooltip">WS</span></td><td style="text-align:center;"><span class="tooltip">MCDB</span></td><td style="text-align:center;"><span class="tooltip">WS</span></td><td style="text-align:center;"><span class="tooltip">MCDB</span></td><td style="text-align:center;"><span class="tooltip">MCWS</span></td><td style="text-align:center;"><span class="tooltip">PCWD</span></td></tr><tr class="brd5" height="5"><td></td></tr><tr class="brd2"><td data-key="coldest_month" style="text-align:center;"><b>1</b></td><td data-key="heating_DB_99.6" style="text-align:center;"><b>-23.3</b></td><td data-key="heating_DB_99" style="text-align:center;"><b>-20.5</b></td><td data-key="humidification_DP/MCDB_and_HR_99.6_DP" style="text-align:center;"><b>-29.7</b></td><td data-key="humidification_DP/MCDB_and_HR_99.6_HR" style="text-align:center;"><b>0.2</b></td><td data-key="humidification_DP/MCDB_and_HR_99.6_MCDB" style="text-align:center;"><b>-22.6</b></td><td data-key="humidification_DP/MCDB_and_HR_99_DP" style="text-align:center;"><b>-26.8</b></td><td data-key="humidification_DP/MCDB_and_HR_99_HR" style="text-align:center;"><b>0.3</b></td><td data-key="humidification_DP/MCDB_and_HR_99_MCDB" style="text-align:center;"><b>-20.0</b></td><td data-key="coldest_month_WS/MSDB_0.4_WS" style="text-align:center;"><b>13.3</b></td><td data-key="coldest_month_WS/MSDB_0.4_MCDB" style="text-align:center;"><b>-5.5</b></td><td data-key="coldest_month_WS/MSDB_1_WS" style="text-align:center;"><b>11.7</b></td><td data-key="coldest_month_WS/MSDB_1_MCDB" style="text-align:center;"><b>-6.7</b></td><td data-key="MCWS/PCWD_to_99.6_DB_MCWS" style="text-align:center;"><b>4.9</b></td><td data-key="MCWS/PCWD_to_99.6_DB_PCWD" style="text-align:center;"><b>240</b></td><td data-key="WSF" style="text-align:center;"><b>0.620</b></td></tr><tr class="brd2" height="5"><td></td></tr></tbody>
+
+				<tbody><tr class="greentext"><td colspan="16" style="text-align:left;">Annual Cooling, Dehumidification, and Enthalpy Design Conditions</td></tr>
+					<tr class="brd5" height="5">
+						<td colspan="16" style="border-bottom-color:black"></td>
+					</tr>
+				</tbody><tbody align="center"><tr><td rowspan="3" style="text-align:center;">Hottest Month</td><td rowspan="3" style="text-align:center;">Hottest Month <br> <span class="tooltip">DB</span> Range</td><td colspan="6" style="text-align:center;">Cooling <span class="tooltip">DB</span>/<span class="tooltip">MCWB</span></td><td colspan="6" style="text-align:center;">Evaporation <span class="tooltip">WB</span>/<span class="tooltip">MCDB</span></td><td rowspan="2" colspan="2" style="text-align:center;"><span class="tooltip">MCWS</span>/<span class="tooltip">PCWD</span> to 0.4% <span class="tooltip">DB</span></td></tr><tr><td colspan="2" style="text-align:center;">0.4%</td><td colspan="2" style="text-align:center;">1%</td><td colspan="2" style="text-align:center;">2%</td><td colspan="2" style="text-align:center;">0.4%</td><td colspan="2" style="text-align:center;">1%</td><td colspan="2" style="text-align:center;">2%</td></tr><tr><td style="text-align:center;"><span class="tooltip">DB</span></td><td style="text-align:center;"><span class="tooltip">MCWB</span></td><td style="text-align:center;"><span class="tooltip">DB</span></td><td style="text-align:center;"><span class="tooltip">MCWB</span></td><td style="text-align:center;"><span class="tooltip">DB</span></td><td style="text-align:center;"><span class="tooltip">MCWB</span></td><td style="text-align:center;"><span class="tooltip">WB</span></td><td style="text-align:center;"><span class="tooltip">MCDB</span></td><td style="text-align:center;"><span class="tooltip">WB</span></td><td style="text-align:center;"><span class="tooltip">MCDB</span></td><td style="text-align:center;"><span class="tooltip">WB</span></td><td style="text-align:center;"><span class="tooltip">MCDB</span></td><td style="text-align:center;"><span class="tooltip">MCWS</span></td><td style="text-align:center;"><span class="tooltip">PCWD</span></td></tr></tbody><tbody align="center"><tr class="brd5" height="5"><td></td></tr><tr class="brd2"><td data-key="hottest_month" style="text-align:center;"><b>7</b></td><td data-key="hottest_month_DB_range" style="text-align:center;"><b>9.3</b></td><td data-key="cooling_DB_MCWB_0.4_DB" style="text-align:center;"><b>29.9</b></td><td data-key="cooling_DB_MCWB_0.4_MCWB" style="text-align:center;"><b>21.1</b></td><td data-key="cooling_DB_MCWB_1_DB" style="text-align:center;"><b>28.2</b></td><td data-key="cooling_DB_MCWB_1_MCWB" style="text-align:center;"><b>20.1</b></td><td data-key="cooling_DB_MCWB_2_DB" style="text-align:center;"><b>26.5</b></td><td data-key="cooling_DB_MCWB_2_MCWB" style="text-align:center;"><b>19.3</b></td><td data-key="evaporation_WB_MCDB_0.4_WB" style="text-align:center;"><b>23.1</b></td><td data-key="evaporation_WB_MCDB_0.4_MCDB" style="text-align:center;"><b>27.6</b></td><td data-key="evaporation_WB_MCDB_1_WB" style="text-align:center;"><b>21.8</b></td><td data-key="evaporation_WB_MCDB_1_MCDB" style="text-align:center;"><b>26.1</b></td><td data-key="evaporation_WB_MCDB_2_WB" style="text-align:center;"><b>20.7</b></td><td data-key="evaporation_WB_MCDB_2_MCDB" style="text-align:center;"><b>24.6</b></td><td data-key="MCWS_PCWD_to_0.4_DB_MCWS" style="text-align:center;"><b>5.2</b></td><td data-key="MCWS_PCWD_to_0.4_DB_PCWD" style="text-align:center;"><b>240</b></td></tr><tr class="brd3" height="5"><td></td></tr><tr><td colspan="9" style="text-align:center;">Dehumidification <span class="tooltip">DP</span>/<span class="tooltip">MCDB</span> and <span class="tooltip">HR</span></td><td colspan="6" style="text-align:center;">Enthalpy/<span class="tooltip">MCDB</span></td><td rowspan="3" style="text-align:center;">Extreme Max <span class="tooltip">WB</span></td></tr><tr><td colspan="3" style="text-align:center;">0.4%</td><td colspan="3" style="text-align:center;">1%</td><td colspan="3" style="text-align:center;">2%</td><td colspan="2" style="text-align:center;">0.4%</td><td colspan="2" style="text-align:center;">1%</td><td colspan="2" style="text-align:center;">2%</td></tr><tr><td style="text-align:center;"><span class="tooltip">DP</span></td><td style="text-align:center;"><span class="tooltip">HR</span></td><td style="text-align:center;"><span class="tooltip">MCDB</span></td><td style="text-align:center;"><span class="tooltip">DP</span></td><td style="text-align:center;"><span class="tooltip">HR</span></td><td style="text-align:center;"><span class="tooltip">MCDB</span></td><td style="text-align:center;"><span class="tooltip">DP</span></td><td style="text-align:center;"><span class="tooltip">HR</span></td><td style="text-align:center;"><span class="tooltip">MCDB</span></td><td style="text-align:center;"><span class="tooltip">Enth</span></td><td style="text-align:center;"><span class="tooltip">MCDB</span></td><td style="text-align:center;"><span class="tooltip">Enth</span></td><td style="text-align:center;"><span class="tooltip">MCDB</span></td><td style="text-align:center;"><span class="tooltip">Enth</span></td><td style="text-align:center;"><span class="tooltip">MCDB</span></td></tr><tr class="brd5" height="5"><td></td></tr><tr class="brd2"><td data-key="dehumidification_DP/MCDB_and_HR_0.4_DP" style="text-align:center;"><b>21.5</b></td><td data-key="dehumidification_DP/MCDB_and_HR_0.4_HR" style="text-align:center;"><b>16.2</b></td><td data-key="dehumidification_DP/MCDB_and_HR_0.4_MCDB" style="text-align:center;"><b>25.6</b></td><td data-key="dehumidification_DP/MCDB_and_HR_1_DP" style="text-align:center;"><b>20.3</b></td><td data-key="dehumidification_DP/MCDB_and_HR_1_HR" style="text-align:center;"><b>15.0</b></td><td data-key="dehumidification_DP/MCDB_and_HR_1_MCDB" style="text-align:center;"><b>24.2</b></td><td data-key="dehumidification_DP/MCDB_and_HR_2_DP" style="text-align:center;"><b>19.2</b></td><td data-key="dehumidification_DP/MCDB_and_HR_2_HR" style="text-align:center;"><b>14.0</b></td><td data-key="dehumidification_DP/MCDB_and_HR_2_MCDB" style="text-align:center;"><b>23.1</b></td><td data-key="enthalpy_MCDB_0.4_enth" style="text-align:center;"><b>68.4</b></td><td data-key="enthalpy_MCDB_0.4_MCDB" style="text-align:center;"><b>27.9</b></td><td data-key="enthalpy_MCDB_1_enth" style="text-align:center;"><b>63.7</b></td><td data-key="enthalpy_MCDB_1_MCDB" style="text-align:center;"><b>26.2</b></td><td data-key="enthalpy_MCDB_2_enth" style="text-align:center;"><b>59.9</b></td><td data-key="enthalpy_MCDB_2_MCDB" style="text-align:center;"><b>24.6</b></td><td data-key="extreme_max_WB" style="text-align:center;"><b>29.9</b></td></tr><tr class="brd2" height="5"><td></td></tr></tbody>
+
+				<tbody><tr class="greentext"><td colspan="16" style="text-align:left;">Extreme Annual Design Conditions</td></tr>
+					<tr class="brd5" height="5">
+						<td colspan="3" style="border-bottom-color:black"></td>
+						<td colspan="1" style="border-bottom-color:transparament"></td>
+						<td colspan="12" style="border-bottom-color:black"></td>
+					</tr>
+				</tbody><tbody align="center"><tr><td colspan="3" rowspan="2" style="text-align:center;">Extreme Annual <span class="tooltip">WS</span></td><td class="brd6" rowspan="3" style="text-align:center;"></td><td colspan="4" style="text-align:center;">Extreme Annual Temperature</td><td colspan="8" style="text-align:center;">n-Year Return Period Values of Extreme Temperature</td></tr><tr><td colspan="2" style="text-align:center;">Mean</td><td colspan="2" style="text-align:center;">Standard deviation</td><td colspan="2" style="text-align:center;">n=5 years</td><td colspan="2" style="text-align:center;">n=10 years</td><td colspan="2" style="text-align:center;">n=20 years</td><td colspan="2" style="text-align:center;">n=50 years</td></tr><tr><td style="text-align:center;">1%</td><td style="text-align:center;">2.5%</td><td style="text-align:center;">5%</td><td style="text-align:center;">Min</td><td style="text-align:center;">Max</td><td style="text-align:center;">Min</td><td style="text-align:center;">Max</td><td style="text-align:center;">Min</td><td style="text-align:center;">Max</td><td style="text-align:center;">Min</td><td style="text-align:center;">Max</td><td style="text-align:center;">Min</td><td style="text-align:center;">Max</td><td style="text-align:center;">Min</td><td style="text-align:center;">Max</td></tr><tr class="brd5" height="5"><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td><td class="brd8" style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td></tr><tr class="brd2"><td data-key="extreme_annual_WS_1" style="text-align:center;"><b>12.4</b></td><td data-key="extreme_annual_WS_2.5" style="text-align:center;"><b>10.6</b></td><td class="brd9" data-key="extreme_annual_WS_5" style="text-align:center;"><b>9.2</b></td><td class="brd7" style="text-align:center;"><span class="tooltip">DB</span></td><td data-key="extreme_annual_DB_mean_min" style="text-align:center;"><b>-26.0</b></td><td data-key="extreme_annual_DB_mean_max" style="text-align:center;"><b>32.8</b></td><td data-key="extreme_annual_DB_standard_deviation_min" style="text-align:center;"><b>3.2</b></td><td data-key="extreme_annual_DB_standard_deviation_max" style="text-align:center;"><b>2.1</b></td><td data-key="n-year_return_period_values_of_extreme_DB_5_min" style="text-align:center;"><b>-28.4</b></td><td data-key="n-year_return_period_values_of_extreme_DB_5_max" style="text-align:center;"><b>34.3</b></td><td data-key="n-year_return_period_values_of_extreme_DB_10_min" style="text-align:center;"><b>-30.2</b></td><td data-key="n-year_return_period_values_of_extreme_DB_10_max" style="text-align:center;"><b>35.5</b></td><td data-key="n-year_return_period_values_of_extreme_DB_20_min" style="text-align:center;"><b>-32.1</b></td><td data-key="n-year_return_period_values_of_extreme_DB_20_max" style="text-align:center;"><b>36.6</b></td><td data-key="n-year_return_period_values_of_extreme_DB_50_min" style="text-align:center;"><b>-34.4</b></td><td data-key="n-year_return_period_values_of_extreme_DB_50_max" style="text-align:center;"><b>38.1</b></td></tr><tr class="brd2"><td style="text-align:center;"></td><td style="text-align:center;"></td><td class="brd9" style="text-align:center;"></td><td class="brd7" style="text-align:center;"><span class="tooltip">WB</span></td><td data-key="extreme_annual_WB_mean_min" style="text-align:center;"><b>-26.7</b></td><td data-key="extreme_annual_WB_mean_max" style="text-align:center;"><b>24.3</b></td><td data-key="extreme_annual_WB_standard_deviation_min" style="text-align:center;"><b>2.9</b></td><td data-key="extreme_annual_WB_standard_deviation_max" style="text-align:center;"><b>1.1</b></td><td data-key="n-year_return_period_values_of_extreme_WB_5_min" style="text-align:center;"><b>-28.8</b></td><td data-key="n-year_return_period_values_of_extreme_WB_5_max" style="text-align:center;"><b>25.1</b></td><td data-key="n-year_return_period_values_of_extreme_WB_10_min" style="text-align:center;"><b>-30.5</b></td><td data-key="n-year_return_period_values_of_extreme_WB_10_max" style="text-align:center;"><b>25.7</b></td><td data-key="n-year_return_period_values_of_extreme_WB_20_min" style="text-align:center;"><b>-32.1</b></td><td data-key="n-year_return_period_values_of_extreme_WB_20_max" style="text-align:center;"><b>26.3</b></td><td data-key="n-year_return_period_values_of_extreme_WB_50_min" style="text-align:center;"><b>-34.2</b></td><td data-key="n-year_return_period_values_of_extreme_WB_50_max" style="text-align:center;"><b>27.1</b></td></tr><tr class="brd2" height="5"><td></td></tr></tbody>
+
+				<tbody><tr class="greentext"><td colspan="16" style="text-align:left;">Monthly Climatic Design Conditions</td></tr>
+					<tr class="brd5" height="5">
+						<td colspan="3" style="border-bottom-color:transparament"></td>
+						<td colspan="13" style="border-bottom-color:black"></td>
+					</tr>
+				<tr><td colspan="3" class="brd4" style="text-align:center;"></td><td style="text-align:center;">Annual</td><td style="text-align:center;">Jan</td><td style="text-align:center;">Feb</td><td style="text-align:center;">Mar</td><td style="text-align:center;">Apr</td><td style="text-align:center;">May</td><td style="text-align:center;">Jun</td><td style="text-align:center;">Jul</td><td style="text-align:center;">Aug</td><td style="text-align:center;">Sep</td><td style="text-align:center;">Oct</td><td style="text-align:center;">Nov</td><td style="text-align:center;">Dec</td></tr><tr class="brd2"><td colspan="2" rowspan="8" style="border-right-color: black; text-align:center;"><b>Temperatures, Degree-Days and Degree-Hours</b></td><td style="border-color: black; text-align:center;"><span class="tooltip">DBAvg</span></td><td data-key="dbavg_annual" style="text-align:center;"><b>6.1</b></td><td data-key="dbavg_jan" style="text-align:center;"><b>-10.1</b></td><td data-key="dbavg_feb" style="text-align:center;"><b>-8.1</b></td><td data-key="dbavg_mar" style="text-align:center;"><b>-2.7</b></td><td data-key="dbavg_apr" style="text-align:center;"><b>4.6</b></td><td data-key="dbavg_may" style="text-align:center;"><b>11.8</b></td><td data-key="dbavg_jun" style="text-align:center;"><b>17.2</b></td><td data-key="dbavg_jul" style="text-align:center;"><b>20.7</b></td><td data-key="dbavg_aug" style="text-align:center;"><b>19.7</b></td><td data-key="dbavg_sep" style="text-align:center;"><b>15.4</b></td><td data-key="dbavg_oct" style="text-align:center;"><b>8.1</b></td><td data-key="dbavg_nov" style="text-align:center;"><b>1.9</b></td><td data-key="dbavg_dec" style="text-align:center;"><b>-5.8</b></td></tr><tr class="brd3"><td style="border-color: black; text-align:center;"><span class="tooltip">DBStd</span></td><td data-key="dbstd_annual" style="text-align:center;"><b>11.47</b></td><td data-key="dbstd_jan" style="text-align:center;"><b>6.47</b></td><td data-key="dbstd_feb" style="text-align:center;"><b>5.49</b></td><td data-key="dbstd_mar" style="text-align:center;"><b>5.25</b></td><td data-key="dbstd_apr" style="text-align:center;"><b>3.78</b></td><td data-key="dbstd_may" style="text-align:center;"><b>3.90</b></td><td data-key="dbstd_jun" style="text-align:center;"><b>3.58</b></td><td data-key="dbstd_jul" style="text-align:center;"><b>2.93</b></td><td data-key="dbstd_aug" style="text-align:center;"><b>2.92</b></td><td data-key="dbstd_sep" style="text-align:center;"><b>3.61</b></td><td data-key="dbstd_oct" style="text-align:center;"><b>4.05</b></td><td data-key="dbstd_nov" style="text-align:center;"><b>4.03</b></td><td data-key="dbstd_dec" style="text-align:center;"><b>5.41</b></td></tr><tr class="brd2"><td style="border-color: black; text-align:center;"><span class="tooltip">HDD10.0</span></td><td data-key="hdd10.0_annual" style="text-align:center;"><b>2534</b></td><td data-key="hdd10.0_jan" style="text-align:center;"><b>622</b></td><td data-key="hdd10.0_feb" style="text-align:center;"><b>507</b></td><td data-key="hdd10.0_mar" style="text-align:center;"><b>395</b></td><td data-key="hdd10.0_apr" style="text-align:center;"><b>167</b></td><td data-key="hdd10.0_may" style="text-align:center;"><b>22</b></td><td data-key="hdd10.0_jun" style="text-align:center;"><b>0</b></td><td data-key="hdd10.0_jul" style="text-align:center;"><b>0</b></td><td data-key="hdd10.0_aug" style="text-align:center;"><b>0</b></td><td data-key="hdd10.0_sep" style="text-align:center;"><b>2</b></td><td data-key="hdd10.0_oct" style="text-align:center;"><b>87</b></td><td data-key="hdd10.0_nov" style="text-align:center;"><b>243</b></td><td data-key="hdd10.0_dec" style="text-align:center;"><b>490</b></td></tr><tr class="brd3"><td style="border-color: black; text-align:center;"><span class="tooltip">HDD18.3</span></td><td data-key="hdd18.3_annual" style="text-align:center;"><b>4643</b></td><td data-key="hdd18.3_jan" style="text-align:center;"><b>881</b></td><td data-key="hdd18.3_feb" style="text-align:center;"><b>740</b></td><td data-key="hdd18.3_mar" style="text-align:center;"><b>653</b></td><td data-key="hdd18.3_apr" style="text-align:center;"><b>413</b></td><td data-key="hdd18.3_may" style="text-align:center;"><b>205</b></td><td data-key="hdd18.3_jun" style="text-align:center;"><b>63</b></td><td data-key="hdd18.3_jul" style="text-align:center;"><b>10</b></td><td data-key="hdd18.3_aug" style="text-align:center;"><b>19</b></td><td data-key="hdd18.3_sep" style="text-align:center;"><b>102</b></td><td data-key="hdd18.3_oct" style="text-align:center;"><b>318</b></td><td data-key="hdd18.3_nov" style="text-align:center;"><b>492</b></td><td data-key="hdd18.3_dec" style="text-align:center;"><b>748</b></td></tr><tr class="brd2"><td style="border-color: black; text-align:center;"><span class="tooltip">CDD10.0</span></td><td data-key="cdd10.0_annual" style="text-align:center;"><b>1125</b></td><td data-key="cdd10.0_jan" style="text-align:center;"><b>0</b></td><td data-key="cdd10.0_feb" style="text-align:center;"><b>0</b></td><td data-key="cdd10.0_mar" style="text-align:center;"><b>0</b></td><td data-key="cdd10.0_apr" style="text-align:center;"><b>4</b></td><td data-key="cdd10.0_may" style="text-align:center;"><b>79</b></td><td data-key="cdd10.0_jun" style="text-align:center;"><b>216</b></td><td data-key="cdd10.0_jul" style="text-align:center;"><b>331</b></td><td data-key="cdd10.0_aug" style="text-align:center;"><b>302</b></td><td data-key="cdd10.0_sep" style="text-align:center;"><b>164</b></td><td data-key="cdd10.0_oct" style="text-align:center;"><b>27</b></td><td data-key="cdd10.0_nov" style="text-align:center;"><b>1</b></td><td data-key="cdd10.0_dec" style="text-align:center;"><b>0</b></td></tr><tr class="brd3"><td style="border-color: black; text-align:center;"><span class="tooltip">CDD18.3</span></td><td data-key="cdd18.3_annual" style="text-align:center;"><b>193</b></td><td data-key="cdd18.3_jan" style="text-align:center;"><b>0</b></td><td data-key="cdd18.3_feb" style="text-align:center;"><b>0</b></td><td data-key="cdd18.3_mar" style="text-align:center;"><b>0</b></td><td data-key="cdd18.3_apr" style="text-align:center;"><b>0</b></td><td data-key="cdd18.3_may" style="text-align:center;"><b>4</b></td><td data-key="cdd18.3_jun" style="text-align:center;"><b>29</b></td><td data-key="cdd18.3_jul" style="text-align:center;"><b>82</b></td><td data-key="cdd18.3_aug" style="text-align:center;"><b>62</b></td><td data-key="cdd18.3_sep" style="text-align:center;"><b>14</b></td><td data-key="cdd18.3_oct" style="text-align:center;"><b>1</b></td><td data-key="cdd18.3_nov" style="text-align:center;"><b>0</b></td><td data-key="cdd18.3_dec" style="text-align:center;"><b>0</b></td></tr><tr class="brd2"><td style="border-color: black; text-align:center;"><span class="tooltip">CDH23.3</span></td><td data-key="cdh_23.3_annual" style="text-align:center;"><b>1332</b></td><td data-key="cdh_23.3_jan" style="text-align:center;"><b>0</b></td><td data-key="cdh_23.3_feb" style="text-align:center;"><b>0</b></td><td data-key="cdh_23.3_mar" style="text-align:center;"><b>0</b></td><td data-key="cdh_23.3_apr" style="text-align:center;"><b>2</b></td><td data-key="cdh_23.3_may" style="text-align:center;"><b>71</b></td><td data-key="cdh_23.3_jun" style="text-align:center;"><b>223</b></td><td data-key="cdh_23.3_jul" style="text-align:center;"><b>551</b></td><td data-key="cdh_23.3_aug" style="text-align:center;"><b>378</b></td><td data-key="cdh_23.3_sep" style="text-align:center;"><b>102</b></td><td data-key="cdh_23.3_oct" style="text-align:center;"><b>6</b></td><td data-key="cdh_23.3_nov" style="text-align:center;"><b>0</b></td><td data-key="cdh_23.3_dec" style="text-align:center;"><b>0</b></td></tr><tr class="brd2"><td style="border-color: black; text-align:center;"><span class="tooltip">CDH26.7</span></td><td data-key="cdh_26.7_annual" style="text-align:center;"><b>346</b></td><td data-key="cdh_26.7_jan" style="text-align:center;"><b>0</b></td><td data-key="cdh_26.7_feb" style="text-align:center;"><b>0</b></td><td data-key="cdh_26.7_mar" style="text-align:center;"><b>0</b></td><td data-key="cdh_26.7_apr" style="text-align:center;"><b>0</b></td><td data-key="cdh_26.7_may" style="text-align:center;"><b>18</b></td><td data-key="cdh_26.7_jun" style="text-align:center;"><b>63</b></td><td data-key="cdh_26.7_jul" style="text-align:center;"><b>152</b></td><td data-key="cdh_26.7_aug" style="text-align:center;"><b>87</b></td><td data-key="cdh_26.7_sep" style="text-align:center;"><b>25</b></td><td data-key="cdh_26.7_oct" style="text-align:center;"><b>1</b></td><td data-key="cdh_26.7_nov" style="text-align:center;"><b>0</b></td><td data-key="cdh_26.7_dec" style="text-align:center;"><b>0</b></td></tr><tr class="greentext" height="10"><td colspan="16" style="text-align:center;"></td></tr><tr class="brd3"><td colspan="2" style="border-right-color: black; text-align:center;"><b>Wind</b></td><td style="border-color: black; text-align:center;"><span class="tooltip">WSAvg</span></td><td data-key="wsavg_annual" style="text-align:center;"><b>4.3</b></td><td data-key="wsavg_jan" style="text-align:center;"><b>4.5</b></td><td data-key="wsavg_feb" style="text-align:center;"><b>4.6</b></td><td data-key="wsavg_mar" style="text-align:center;"><b>4.5</b></td><td data-key="wsavg_apr" style="text-align:center;"><b>4.9</b></td><td data-key="wsavg_may" style="text-align:center;"><b>4.9</b></td><td data-key="wsavg_jun" style="text-align:center;"><b>4.0</b></td><td data-key="wsavg_jul" style="text-align:center;"><b>3.5</b></td><td data-key="wsavg_aug" style="text-align:center;"><b>3.5</b></td><td data-key="wsavg_sep" style="text-align:center;"><b>3.6</b></td><td data-key="wsavg_oct" style="text-align:center;"><b>4.4</b></td><td data-key="wsavg_nov" style="text-align:center;"><b>4.4</b></td><td data-key="wsavg_dec" style="text-align:center;"><b>4.5</b></td></tr><tr class="greentext" height="10"><td colspan="16" style="text-align:center;"></td></tr><tr class="brd3"><td colspan="2" rowspan="4" style="border-right-color: black; text-align:center;"><b>Precipitation</b></td><td style="border-color: black; text-align:center;"><span class="tooltip">PrecAvg</span></td><td data-key="precavg_annual" style="text-align:center;"><b>1243</b></td><td data-key="precavg_jan" style="text-align:center;"><b>86</b></td><td data-key="precavg_feb" style="text-align:center;"><b>73</b></td><td data-key="precavg_mar" style="text-align:center;"><b>77</b></td><td data-key="precavg_apr" style="text-align:center;"><b>93</b></td><td data-key="precavg_may" style="text-align:center;"><b>102</b></td><td data-key="precavg_jun" style="text-align:center;"><b>118</b></td><td data-key="precavg_jul" style="text-align:center;"><b>132</b></td><td data-key="precavg_aug" style="text-align:center;"><b>124</b></td><td data-key="precavg_sep" style="text-align:center;"><b>119</b></td><td data-key="precavg_oct" style="text-align:center;"><b>115</b></td><td data-key="precavg_nov" style="text-align:center;"><b>98</b></td><td data-key="precavg_dec" style="text-align:center;"><b>102</b></td></tr><tr class="brd3"><td style="border-color: black; text-align:center;"><span class="tooltip">PrecMax</span></td><td data-key="precmax_annual" style="text-align:center;"><b>1419</b></td><td data-key="precmax_jan" style="text-align:center;"><b>153</b></td><td data-key="precmax_feb" style="text-align:center;"><b>147</b></td><td data-key="precmax_mar" style="text-align:center;"><b>148</b></td><td data-key="precmax_apr" style="text-align:center;"><b>221</b></td><td data-key="precmax_may" style="text-align:center;"><b>261</b></td><td data-key="precmax_jun" style="text-align:center;"><b>238</b></td><td data-key="precmax_jul" style="text-align:center;"><b>259</b></td><td data-key="precmax_aug" style="text-align:center;"><b>210</b></td><td data-key="precmax_sep" style="text-align:center;"><b>232</b></td><td data-key="precmax_oct" style="text-align:center;"><b>244</b></td><td data-key="precmax_nov" style="text-align:center;"><b>165</b></td><td data-key="precmax_dec" style="text-align:center;"><b>206</b></td></tr><tr class="brd3"><td style="border-color: black; text-align:center;"><span class="tooltip">PrecMin</span></td><td data-key="precmin_annual" style="text-align:center;"><b>981</b></td><td data-key="precmin_jan" style="text-align:center;"><b>32</b></td><td data-key="precmin_feb" style="text-align:center;"><b>23</b></td><td data-key="precmin_mar" style="text-align:center;"><b>22</b></td><td data-key="precmin_apr" style="text-align:center;"><b>32</b></td><td data-key="precmin_may" style="text-align:center;"><b>45</b></td><td data-key="precmin_jun" style="text-align:center;"><b>45</b></td><td data-key="precmin_jul" style="text-align:center;"><b>44</b></td><td data-key="precmin_aug" style="text-align:center;"><b>28</b></td><td data-key="precmin_sep" style="text-align:center;"><b>78</b></td><td data-key="precmin_oct" style="text-align:center;"><b>48</b></td><td data-key="precmin_nov" style="text-align:center;"><b>27</b></td><td data-key="precmin_dec" style="text-align:center;"><b>50</b></td></tr><tr class="brd2"><td style="border-color: black; text-align:center;"><span class="tooltip">PrecStd</span></td><td data-key="precstd_annual" style="text-align:center;"><b>123</b></td><td data-key="precstd_jan" style="text-align:center;"><b>33</b></td><td data-key="precstd_feb" style="text-align:center;"><b>28</b></td><td data-key="precstd_mar" style="text-align:center;"><b>30</b></td><td data-key="precstd_apr" style="text-align:center;"><b>49</b></td><td data-key="precstd_may" style="text-align:center;"><b>43</b></td><td data-key="precstd_jun" style="text-align:center;"><b>40</b></td><td data-key="precstd_jul" style="text-align:center;"><b>47</b></td><td data-key="precstd_aug" style="text-align:center;"><b>38</b></td><td data-key="precstd_sep" style="text-align:center;"><b>32</b></td><td data-key="precstd_oct" style="text-align:center;"><b>45</b></td><td data-key="precstd_nov" style="text-align:center;"><b>31</b></td><td data-key="precstd_dec" style="text-align:center;"><b>35</b></td></tr><tr class="greentext" height="10"><td colspan="16" style="text-align:center;"></td></tr><tr class="brd2"><td colspan="2" rowspan="8" style="border-right-color: black; text-align:center;"><b>Monthly Design Dry Bulb and Mean Coincident Wet Bulb Temperatures</b></td><td rowspan="2" style="border-color: black; text-align:center;">0.4%</td><td style="border-color: black; text-align:center;"><span class="tooltip">DB</span></td><td data-key="0.4_DB_jan" style="text-align:center;"><b>4.5</b></td><td data-key="0.4_DB_feb" style="text-align:center;"><b>4.5</b></td><td data-key="0.4_DB_mar" style="text-align:center;"><b>11.8</b></td><td data-key="0.4_DB_apr" style="text-align:center;"><b>20.5</b></td><td data-key="0.4_DB_may" style="text-align:center;"><b>29.2</b></td><td data-key="0.4_DB_jun" style="text-align:center;"><b>31.4</b></td><td data-key="0.4_DB_jul" style="text-align:center;"><b>33.2</b></td><td data-key="0.4_DB_aug" style="text-align:center;"><b>31.1</b></td><td data-key="0.4_DB_sep" style="text-align:center;"><b>29.7</b></td><td data-key="0.4_DB_oct" style="text-align:center;"><b>23.3</b></td><td data-key="0.4_DB_nov" style="text-align:center;"><b>13.6</b></td><td data-key="0.4_DB_dec" style="text-align:center;"><b>6.2</b></td></tr><tr class="brd3"><td style="border-color: black; text-align:center;"><span class="tooltip">MCWB</span></td><td data-key="0.4_MCWB_jan" style="text-align:center;"><b>3.7</b></td><td data-key="0.4_MCWB_feb" style="text-align:center;"><b>2.9</b></td><td data-key="0.4_MCWB_mar" style="text-align:center;"><b>7.0</b></td><td data-key="0.4_MCWB_apr" style="text-align:center;"><b>12.0</b></td><td data-key="0.4_MCWB_may" style="text-align:center;"><b>17.1</b></td><td data-key="0.4_MCWB_jun" style="text-align:center;"><b>21.5</b></td><td data-key="0.4_MCWB_jul" style="text-align:center;"><b>24.3</b></td><td data-key="0.4_MCWB_aug" style="text-align:center;"><b>22.4</b></td><td data-key="0.4_MCWB_sep" style="text-align:center;"><b>21.8</b></td><td data-key="0.4_MCWB_oct" style="text-align:center;"><b>17.2</b></td><td data-key="0.4_MCWB_nov" style="text-align:center;"><b>10.4</b></td><td data-key="0.4_MCWB_dec" style="text-align:center;"><b>5.1</b></td></tr><tr class="brd2"><td rowspan="2" style="border-color: black; text-align:center;">2%</td><td style="border-color: black; text-align:center;"><span class="tooltip">DB</span></td><td data-key="2_DB_jan" style="text-align:center;"><b>2.5</b></td><td data-key="2_DB_feb" style="text-align:center;"><b>2.4</b></td><td data-key="2_DB_mar" style="text-align:center;"><b>7.7</b></td><td data-key="2_DB_apr" style="text-align:center;"><b>16.1</b></td><td data-key="2_DB_may" style="text-align:center;"><b>25.2</b></td><td data-key="2_DB_jun" style="text-align:center;"><b>28.5</b></td><td data-key="2_DB_jul" style="text-align:center;"><b>30.0</b></td><td data-key="2_DB_aug" style="text-align:center;"><b>29.1</b></td><td data-key="2_DB_sep" style="text-align:center;"><b>26.3</b></td><td data-key="2_DB_oct" style="text-align:center;"><b>19.5</b></td><td data-key="2_DB_nov" style="text-align:center;"><b>10.9</b></td><td data-key="2_DB_dec" style="text-align:center;"><b>3.9</b></td></tr><tr class="brd3"><td style="border-color: black; text-align:center;"><span class="tooltip">MCWB</span></td><td data-key="2_MCWB_jan" style="text-align:center;"><b>1.5</b></td><td data-key="2_MCWB_feb" style="text-align:center;"><b>1.0</b></td><td data-key="2_MCWB_mar" style="text-align:center;"><b>3.7</b></td><td data-key="2_MCWB_apr" style="text-align:center;"><b>8.4</b></td><td data-key="2_MCWB_may" style="text-align:center;"><b>15.4</b></td><td data-key="2_MCWB_jun" style="text-align:center;"><b>19.7</b></td><td data-key="2_MCWB_jul" style="text-align:center;"><b>22.0</b></td><td data-key="2_MCWB_aug" style="text-align:center;"><b>20.7</b></td><td data-key="2_MCWB_sep" style="text-align:center;"><b>19.6</b></td><td data-key="2_MCWB_oct" style="text-align:center;"><b>14.4</b></td><td data-key="2_MCWB_nov" style="text-align:center;"><b>8.9</b></td><td data-key="2_MCWB_dec" style="text-align:center;"><b>2.6</b></td></tr><tr class="brd2"><td rowspan="2" style="border-color: black; text-align:center;">5%</td><td style="border-color: black; text-align:center;"><span class="tooltip">DB</span></td><td data-key="5_DB_jan" style="text-align:center;"><b>1.1</b></td><td data-key="5_DB_feb" style="text-align:center;"><b>1.1</b></td><td data-key="5_DB_mar" style="text-align:center;"><b>5.2</b></td><td data-key="5_DB_apr" style="text-align:center;"><b>12.6</b></td><td data-key="5_DB_may" style="text-align:center;"><b>21.5</b></td><td data-key="5_DB_jun" style="text-align:center;"><b>25.9</b></td><td data-key="5_DB_jul" style="text-align:center;"><b>28.2</b></td><td data-key="5_DB_aug" style="text-align:center;"><b>27.2</b></td><td data-key="5_DB_sep" style="text-align:center;"><b>23.4</b></td><td data-key="5_DB_oct" style="text-align:center;"><b>16.3</b></td><td data-key="5_DB_nov" style="text-align:center;"><b>8.7</b></td><td data-key="5_DB_dec" style="text-align:center;"><b>2.6</b></td></tr><tr class="brd3"><td style="border-color: black; text-align:center;"><span class="tooltip">MCWB</span></td><td data-key="5_MCWB_jan" style="text-align:center;"><b>0.4</b></td><td data-key="5_MCWB_feb" style="text-align:center;"><b>-0.1</b></td><td data-key="5_MCWB_mar" style="text-align:center;"><b>2.6</b></td><td data-key="5_MCWB_apr" style="text-align:center;"><b>6.8</b></td><td data-key="5_MCWB_may" style="text-align:center;"><b>14.2</b></td><td data-key="5_MCWB_jun" style="text-align:center;"><b>18.0</b></td><td data-key="5_MCWB_jul" style="text-align:center;"><b>20.7</b></td><td data-key="5_MCWB_aug" style="text-align:center;"><b>19.9</b></td><td data-key="5_MCWB_sep" style="text-align:center;"><b>17.9</b></td><td data-key="5_MCWB_oct" style="text-align:center;"><b>13.1</b></td><td data-key="5_MCWB_nov" style="text-align:center;"><b>6.8</b></td><td data-key="5_MCWB_dec" style="text-align:center;"><b>1.5</b></td></tr><tr class="brd2"><td rowspan="2" style="border-color: black; text-align:center;">10%</td><td style="border-color: black; text-align:center;"><span class="tooltip">DB</span></td><td data-key="10_DB_jan" style="text-align:center;"><b>-1.1</b></td><td data-key="10_DB_feb" style="text-align:center;"><b>-0.2</b></td><td data-key="10_DB_mar" style="text-align:center;"><b>3.4</b></td><td data-key="10_DB_apr" style="text-align:center;"><b>10.1</b></td><td data-key="10_DB_may" style="text-align:center;"><b>18.5</b></td><td data-key="10_DB_jun" style="text-align:center;"><b>23.6</b></td><td data-key="10_DB_jul" style="text-align:center;"><b>26.4</b></td><td data-key="10_DB_aug" style="text-align:center;"><b>25.4</b></td><td data-key="10_DB_sep" style="text-align:center;"><b>21.3</b></td><td data-key="10_DB_oct" style="text-align:center;"><b>13.7</b></td><td data-key="10_DB_nov" style="text-align:center;"><b>7.1</b></td><td data-key="10_DB_dec" style="text-align:center;"><b>1.3</b></td></tr><tr class="brd3"><td style="border-color: black; text-align:center;"><span class="tooltip">MCWB</span></td><td data-key="10_MCWB_jan" style="text-align:center;"><b>-2.0</b></td><td data-key="10_MCWB_feb" style="text-align:center;"><b>-1.1</b></td><td data-key="10_MCWB_mar" style="text-align:center;"><b>1.3</b></td><td data-key="10_MCWB_apr" style="text-align:center;"><b>5.7</b></td><td data-key="10_MCWB_may" style="text-align:center;"><b>12.3</b></td><td data-key="10_MCWB_jun" style="text-align:center;"><b>17.0</b></td><td data-key="10_MCWB_jul" style="text-align:center;"><b>19.8</b></td><td data-key="10_MCWB_aug" style="text-align:center;"><b>19.2</b></td><td data-key="10_MCWB_sep" style="text-align:center;"><b>16.9</b></td><td data-key="10_MCWB_oct" style="text-align:center;"><b>10.9</b></td><td data-key="10_MCWB_nov" style="text-align:center;"><b>5.6</b></td><td data-key="10_MCWB_dec" style="text-align:center;"><b>0.4</b></td></tr><tr class="greentext" height="10"><td colspan="16" style="text-align:center;"></td></tr><tr class="brd2"><td colspan="2" rowspan="8" style="border-right-color: black; text-align:center;"><b>Monthly Design Wet Bulb and Mean Coincident Dry Bulb Temperatures</b></td><td rowspan="2" style="border-color: black; text-align:center;">0.4%</td><td style="border-color: black; text-align:center;"><span class="tooltip">WB</span></td><td data-key="0.4_WB_jan" style="text-align:center;"><b>3.9</b></td><td data-key="0.4_WB_feb" style="text-align:center;"><b>3.2</b></td><td data-key="0.4_WB_mar" style="text-align:center;"><b>8.1</b></td><td data-key="0.4_WB_apr" style="text-align:center;"><b>13.7</b></td><td data-key="0.4_WB_may" style="text-align:center;"><b>20.0</b></td><td data-key="0.4_WB_jun" style="text-align:center;"><b>22.8</b></td><td data-key="0.4_WB_jul" style="text-align:center;"><b>25.2</b></td><td data-key="0.4_WB_aug" style="text-align:center;"><b>23.7</b></td><td data-key="0.4_WB_sep" style="text-align:center;"><b>22.6</b></td><td data-key="0.4_WB_oct" style="text-align:center;"><b>18.1</b></td><td data-key="0.4_WB_nov" style="text-align:center;"><b>11.6</b></td><td data-key="0.4_WB_dec" style="text-align:center;"><b>5.6</b></td></tr><tr class="brd3"><td style="border-color: black; text-align:center;"><span class="tooltip">MCDB</span></td><td data-key="0.4_MCDB_jan" style="text-align:center;"><b>4.5</b></td><td data-key="0.4_MCDB_feb" style="text-align:center;"><b>4.2</b></td><td data-key="0.4_MCDB_mar" style="text-align:center;"><b>10.1</b></td><td data-key="0.4_MCDB_apr" style="text-align:center;"><b>19.0</b></td><td data-key="0.4_MCDB_may" style="text-align:center;"><b>24.6</b></td><td data-key="0.4_MCDB_jun" style="text-align:center;"><b>29.8</b></td><td data-key="0.4_MCDB_jul" style="text-align:center;"><b>30.5</b></td><td data-key="0.4_MCDB_aug" style="text-align:center;"><b>29.0</b></td><td data-key="0.4_MCDB_sep" style="text-align:center;"><b>27.5</b></td><td data-key="0.4_MCDB_oct" style="text-align:center;"><b>22.3</b></td><td data-key="0.4_MCDB_nov" style="text-align:center;"><b>12.8</b></td><td data-key="0.4_MCDB_dec" style="text-align:center;"><b>6.1</b></td></tr><tr class="brd2"><td rowspan="2" style="border-color: black; text-align:center;">2%</td><td style="border-color: black; text-align:center;"><span class="tooltip">WB</span></td><td data-key="2_WB_jan" style="text-align:center;"><b>1.7</b></td><td data-key="2_WB_feb" style="text-align:center;"><b>1.2</b></td><td data-key="2_WB_mar" style="text-align:center;"><b>4.2</b></td><td data-key="2_WB_apr" style="text-align:center;"><b>9.3</b></td><td data-key="2_WB_may" style="text-align:center;"><b>17.5</b></td><td data-key="2_WB_jun" style="text-align:center;"><b>21.1</b></td><td data-key="2_WB_jul" style="text-align:center;"><b>23.8</b></td><td data-key="2_WB_aug" style="text-align:center;"><b>22.2</b></td><td data-key="2_WB_sep" style="text-align:center;"><b>20.4</b></td><td data-key="2_WB_oct" style="text-align:center;"><b>15.1</b></td><td data-key="2_WB_nov" style="text-align:center;"><b>9.1</b></td><td data-key="2_WB_dec" style="text-align:center;"><b>3.0</b></td></tr><tr class="brd3"><td style="border-color: black; text-align:center;"><span class="tooltip">MCDB</span></td><td data-key="2_MCDB_jan" style="text-align:center;"><b>2.3</b></td><td data-key="2_MCDB_feb" style="text-align:center;"><b>2.1</b></td><td data-key="2_MCDB_mar" style="text-align:center;"><b>6.8</b></td><td data-key="2_MCDB_apr" style="text-align:center;"><b>14.3</b></td><td data-key="2_MCDB_may" style="text-align:center;"><b>21.9</b></td><td data-key="2_MCDB_jun" style="text-align:center;"><b>26.2</b></td><td data-key="2_MCDB_jul" style="text-align:center;"><b>28.3</b></td><td data-key="2_MCDB_aug" style="text-align:center;"><b>26.4</b></td><td data-key="2_MCDB_sep" style="text-align:center;"><b>23.8</b></td><td data-key="2_MCDB_oct" style="text-align:center;"><b>18.6</b></td><td data-key="2_MCDB_nov" style="text-align:center;"><b>10.4</b></td><td data-key="2_MCDB_dec" style="text-align:center;"><b>3.7</b></td></tr><tr class="brd2"><td rowspan="2" style="border-color: black; text-align:center;">5%</td><td style="border-color: black; text-align:center;"><span class="tooltip">WB</span></td><td data-key="5_WB_jan" style="text-align:center;"><b>0.4</b></td><td data-key="5_WB_feb" style="text-align:center;"><b>0.1</b></td><td data-key="5_WB_mar" style="text-align:center;"><b>2.8</b></td><td data-key="5_WB_apr" style="text-align:center;"><b>7.7</b></td><td data-key="5_WB_may" style="text-align:center;"><b>14.8</b></td><td data-key="5_WB_jun" style="text-align:center;"><b>19.8</b></td><td data-key="5_WB_jul" style="text-align:center;"><b>22.3</b></td><td data-key="5_WB_aug" style="text-align:center;"><b>21.3</b></td><td data-key="5_WB_sep" style="text-align:center;"><b>18.8</b></td><td data-key="5_WB_oct" style="text-align:center;"><b>13.4</b></td><td data-key="5_WB_nov" style="text-align:center;"><b>7.1</b></td><td data-key="5_WB_dec" style="text-align:center;"><b>1.7</b></td></tr><tr class="brd3"><td style="border-color: black; text-align:center;"><span class="tooltip">MCDB</span></td><td data-key="5_MCDB_jan" style="text-align:center;"><b>1.0</b></td><td data-key="5_MCDB_feb" style="text-align:center;"><b>0.9</b></td><td data-key="5_MCDB_mar" style="text-align:center;"><b>4.8</b></td><td data-key="5_MCDB_apr" style="text-align:center;"><b>11.5</b></td><td data-key="5_MCDB_may" style="text-align:center;"><b>19.7</b></td><td data-key="5_MCDB_jun" style="text-align:center;"><b>23.5</b></td><td data-key="5_MCDB_jul" style="text-align:center;"><b>26.2</b></td><td data-key="5_MCDB_aug" style="text-align:center;"><b>25.2</b></td><td data-key="5_MCDB_sep" style="text-align:center;"><b>21.7</b></td><td data-key="5_MCDB_oct" style="text-align:center;"><b>15.9</b></td><td data-key="5_MCDB_nov" style="text-align:center;"><b>8.2</b></td><td data-key="5_MCDB_dec" style="text-align:center;"><b>2.4</b></td></tr><tr class="brd2"><td rowspan="2" style="border-color: black; text-align:center;">10%</td><td style="border-color: black; text-align:center;"><span class="tooltip">WB</span></td><td data-key="10_WB_jan" style="text-align:center;"><b>-2.0</b></td><td data-key="10_WB_feb" style="text-align:center;"><b>-1.1</b></td><td data-key="10_WB_mar" style="text-align:center;"><b>1.5</b></td><td data-key="10_WB_apr" style="text-align:center;"><b>6.4</b></td><td data-key="10_WB_may" style="text-align:center;"><b>13.2</b></td><td data-key="10_WB_jun" style="text-align:center;"><b>18.4</b></td><td data-key="10_WB_jul" style="text-align:center;"><b>21.0</b></td><td data-key="10_WB_aug" style="text-align:center;"><b>20.3</b></td><td data-key="10_WB_sep" style="text-align:center;"><b>17.5</b></td><td data-key="10_WB_oct" style="text-align:center;"><b>11.3</b></td><td data-key="10_WB_nov" style="text-align:center;"><b>5.8</b></td><td data-key="10_WB_dec" style="text-align:center;"><b>0.6</b></td></tr><tr class="brd3"><td style="border-color: black; text-align:center;"><span class="tooltip">MCDB</span></td><td data-key="10_MCDB_jan" style="text-align:center;"><b>-1.0</b></td><td data-key="10_MCDB_feb" style="text-align:center;"><b>-0.2</b></td><td data-key="10_MCDB_mar" style="text-align:center;"><b>3.2</b></td><td data-key="10_MCDB_apr" style="text-align:center;"><b>9.3</b></td><td data-key="10_MCDB_may" style="text-align:center;"><b>17.7</b></td><td data-key="10_MCDB_jun" style="text-align:center;"><b>22.2</b></td><td data-key="10_MCDB_jul" style="text-align:center;"><b>24.8</b></td><td data-key="10_MCDB_aug" style="text-align:center;"><b>24.1</b></td><td data-key="10_MCDB_sep" style="text-align:center;"><b>20.4</b></td><td data-key="10_MCDB_oct" style="text-align:center;"><b>13.2</b></td><td data-key="10_MCDB_nov" style="text-align:center;"><b>7.0</b></td><td data-key="10_MCDB_dec" style="text-align:center;"><b>1.3</b></td></tr><tr class="greentext" height="10"><td colspan="16" style="text-align:center;"></td></tr><tr class="brd3"><td colspan="2" rowspan="5" style="border-right-color: black; border-bottom-color: transparent; text-align:center;"><b>Mean Daily Temperature Range</b></td><td style="border-right-color: black; text-align:center;"></td><td style="border-color: black; text-align:center;"><span class="tooltip">MDBR</span></td><td data-key="MDBR_jan" style="text-align:center;"><b>7.3</b></td><td data-key="MDBR_feb" style="text-align:center;"><b>7.9</b></td><td data-key="MDBR_mar" style="text-align:center;"><b>7.7</b></td><td data-key="MDBR_apr" style="text-align:center;"><b>7.4</b></td><td data-key="MDBR_may" style="text-align:center;"><b>8.6</b></td><td data-key="MDBR_jun" style="text-align:center;"><b>9.0</b></td><td data-key="MDBR_jul" style="text-align:center;"><b>9.3</b></td><td data-key="MDBR_aug" style="text-align:center;"><b>9.1</b></td><td data-key="MDBR_sep" style="text-align:center;"><b>9.1</b></td><td data-key="MDBR_oct" style="text-align:center;"><b>6.9</b></td><td data-key="MDBR_nov" style="text-align:center;"><b>5.7</b></td><td data-key="MDBR_dec" style="text-align:center;"><b>6.2</b></td></tr><tr class="brd2"><td rowspan="2" style="border-color: black; text-align:center;">5% <span class="tooltip">DB</span></td><td style="border-color: black; text-align:center;"><span class="tooltip">MCDBR</span></td><td data-key="5_DB_MCDBR_jan" style="text-align:center;"><b>8.0</b></td><td data-key="5_DB_MCDBR_feb" style="text-align:center;"><b>7.2</b></td><td data-key="5_DB_MCDBR_mar" style="text-align:center;"><b>9.1</b></td><td data-key="5_DB_MCDBR_apr" style="text-align:center;"><b>13.0</b></td><td data-key="5_DB_MCDBR_may" style="text-align:center;"><b>14.7</b></td><td data-key="5_DB_MCDBR_jun" style="text-align:center;"><b>13.1</b></td><td data-key="5_DB_MCDBR_jul" style="text-align:center;"><b>12.1</b></td><td data-key="5_DB_MCDBR_aug" style="text-align:center;"><b>11.9</b></td><td data-key="5_DB_MCDBR_sep" style="text-align:center;"><b>12.3</b></td><td data-key="5_DB_MCDBR_oct" style="text-align:center;"><b>11.4</b></td><td data-key="5_DB_MCDBR_nov" style="text-align:center;"><b>8.2</b></td><td data-key="5_DB_MCDBR_dec" style="text-align:center;"><b>6.0</b></td></tr><tr class="brd3"><td style="border-color: black; text-align:center;"><span class="tooltip">MCWBR</span></td><td data-key="5_DB_MCWBR_jan" style="text-align:center;"><b>8.0</b></td><td data-key="5_DB_MCWBR_feb" style="text-align:center;"><b>6.2</b></td><td data-key="5_DB_MCWBR_mar" style="text-align:center;"><b>6.5</b></td><td data-key="5_DB_MCWBR_apr" style="text-align:center;"><b>7.7</b></td><td data-key="5_DB_MCWBR_may" style="text-align:center;"><b>7.6</b></td><td data-key="5_DB_MCWBR_jun" style="text-align:center;"><b>6.6</b></td><td data-key="5_DB_MCWBR_jul" style="text-align:center;"><b>6.1</b></td><td data-key="5_DB_MCWBR_aug" style="text-align:center;"><b>6.0</b></td><td data-key="5_DB_MCWBR_sep" style="text-align:center;"><b>6.5</b></td><td data-key="5_DB_MCWBR_oct" style="text-align:center;"><b>7.4</b></td><td data-key="5_DB_MCWBR_nov" style="text-align:center;"><b>6.6</b></td><td data-key="5_DB_MCWBR_dec" style="text-align:center;"><b>5.7</b></td></tr><tr class="brd2"><td rowspan="2" style="border-color: black; text-align:center;">5% <span class="tooltip">WB</span></td><td style="border-color: black; text-align:center;"><span class="tooltip">MCDBR</span></td><td data-key="5_WB_MCDBR_jan" style="text-align:center;"><b>7.6</b></td><td data-key="5_WB_MCDBR_feb" style="text-align:center;"><b>6.5</b></td><td data-key="5_WB_MCDBR_mar" style="text-align:center;"><b>8.2</b></td><td data-key="5_WB_MCDBR_apr" style="text-align:center;"><b>10.8</b></td><td data-key="5_WB_MCDBR_may" style="text-align:center;"><b>12.3</b></td><td data-key="5_WB_MCDBR_jun" style="text-align:center;"><b>10.8</b></td><td data-key="5_WB_MCDBR_jul" style="text-align:center;"><b>10.5</b></td><td data-key="5_WB_MCDBR_aug" style="text-align:center;"><b>9.9</b></td><td data-key="5_WB_MCDBR_sep" style="text-align:center;"><b>10.0</b></td><td data-key="5_WB_MCDBR_oct" style="text-align:center;"><b>10.3</b></td><td data-key="5_WB_MCDBR_nov" style="text-align:center;"><b>7.2</b></td><td data-key="5_WB_MCDBR_dec" style="text-align:center;"><b>5.8</b></td></tr><tr class="brd2"><td style="border-color: black; text-align:center;"><span class="tooltip">MCWBR</span></td><td data-key="5_WB_MCWBR_jan" style="text-align:center;"><b>7.8</b></td><td data-key="5_WB_MCWBR_feb" style="text-align:center;"><b>5.9</b></td><td data-key="5_WB_MCWBR_mar" style="text-align:center;"><b>6.3</b></td><td data-key="5_WB_MCWBR_apr" style="text-align:center;"><b>7.2</b></td><td data-key="5_WB_MCWBR_may" style="text-align:center;"><b>7.5</b></td><td data-key="5_WB_MCWBR_jun" style="text-align:center;"><b>6.7</b></td><td data-key="5_WB_MCWBR_jul" style="text-align:center;"><b>6.1</b></td><td data-key="5_WB_MCWBR_aug" style="text-align:center;"><b>5.8</b></td><td data-key="5_WB_MCWBR_sep" style="text-align:center;"><b>6.4</b></td><td data-key="5_WB_MCWBR_oct" style="text-align:center;"><b>7.1</b></td><td data-key="5_WB_MCWBR_nov" style="text-align:center;"><b>6.3</b></td><td data-key="5_WB_MCWBR_dec" style="text-align:center;"><b>5.7</b></td></tr><tr class="greentext" height="10"><td colspan="16" style="text-align:center;"></td></tr><tr class="brd2"><td colspan="2" rowspan="4" style="border-right-color: black; border-bottom-color: transparent; text-align:center;"><b>Clear Sky Solar Irradiance</b></td><td colspan="2" style="border-color: black; text-align:center;"><span class="tooltip">taub</span></td><td data-key="taub_jan" style="text-align:center;"><b>0.267</b></td><td data-key="taub_feb" style="text-align:center;"><b>0.287</b></td><td data-key="taub_mar" style="text-align:center;"><b>0.329</b></td><td data-key="taub_apr" style="text-align:center;"><b>0.356</b></td><td data-key="taub_may" style="text-align:center;"><b>0.371</b></td><td data-key="taub_jun" style="text-align:center;"><b>0.407</b></td><td data-key="taub_jul" style="text-align:center;"><b>0.418</b></td><td data-key="taub_aug" style="text-align:center;"><b>0.399</b></td><td data-key="taub_sep" style="text-align:center;"><b>0.374</b></td><td data-key="taub_oct" style="text-align:center;"><b>0.342</b></td><td data-key="taub_nov" style="text-align:center;"><b>0.311</b></td><td data-key="taub_dec" style="text-align:center;"><b>0.295</b></td></tr><tr class="brd3"><td colspan="2" style="border-color: black; text-align:center;"><span class="tooltip">taud</span></td><td data-key="taud_jan" style="text-align:center;"><b>2.312</b></td><td data-key="taud_feb" style="text-align:center;"><b>2.243</b></td><td data-key="taud_mar" style="text-align:center;"><b>2.208</b></td><td data-key="taud_apr" style="text-align:center;"><b>2.333</b></td><td data-key="taud_may" style="text-align:center;"><b>2.387</b></td><td data-key="taud_jun" style="text-align:center;"><b>2.285</b></td><td data-key="taud_jul" style="text-align:center;"><b>2.274</b></td><td data-key="taud_aug" style="text-align:center;"><b>2.330</b></td><td data-key="taud_sep" style="text-align:center;"><b>2.393</b></td><td data-key="taud_oct" style="text-align:center;"><b>2.471</b></td><td data-key="taud_nov" style="text-align:center;"><b>2.460</b></td><td data-key="taud_dec" style="text-align:center;"><b>2.274</b></td></tr><tr class="brd2"><td colspan="2" style="border-color: black; text-align:center;"><span class="tooltip">Ebn at noon</span></td><td data-key="ebn_noon_jan" style="text-align:center;"><b>828</b></td><td data-key="ebn_noon_feb" style="text-align:center;"><b>881</b></td><td data-key="ebn_noon_mar" style="text-align:center;"><b>888</b></td><td data-key="ebn_noon_apr" style="text-align:center;"><b>899</b></td><td data-key="ebn_noon_may" style="text-align:center;"><b>894</b></td><td data-key="ebn_noon_jun" style="text-align:center;"><b>859</b></td><td data-key="ebn_noon_jul" style="text-align:center;"><b>843</b></td><td data-key="ebn_noon_aug" style="text-align:center;"><b>846</b></td><td data-key="ebn_noon_sep" style="text-align:center;"><b>836</b></td><td data-key="ebn_noon_oct" style="text-align:center;"><b>813</b></td><td data-key="ebn_noon_nov" style="text-align:center;"><b>773</b></td><td data-key="ebn_noon_dec" style="text-align:center;"><b>733</b></td></tr><tr class="brd2"><td colspan="2" style="border-right-color: black; text-align:center;"><span class="tooltip">Edn at noon</span></td><td data-key="edn_noon_jan" style="text-align:center;"><b>74</b></td><td data-key="edn_noon_feb" style="text-align:center;"><b>98</b></td><td data-key="edn_noon_mar" style="text-align:center;"><b>120</b></td><td data-key="edn_noon_apr" style="text-align:center;"><b>117</b></td><td data-key="edn_noon_may" style="text-align:center;"><b>115</b></td><td data-key="edn_noon_jun" style="text-align:center;"><b>129</b></td><td data-key="edn_noon_jul" style="text-align:center;"><b>129</b></td><td data-key="edn_noon_aug" style="text-align:center;"><b>117</b></td><td data-key="edn_noon_sep" style="text-align:center;"><b>100</b></td><td data-key="edn_noon_oct" style="text-align:center;"><b>80</b></td><td data-key="edn_noon_nov" style="text-align:center;"><b>66</b></td><td data-key="edn_noon_dec" style="text-align:center;"><b>70</b></td></tr><tr class="greentext" height="10"><td colspan="16" style="text-align:center;"></td></tr><tr class="brd2"><td colspan="2" rowspan="2" style="border-right-color: black; border-bottom-color: black; text-align:center;"><b>All-Sky Solar Radiation</b></td><td colspan="2" style="border-color: black; text-align:center;"><span class="tooltip">RadAvg</span></td><td data-key="radavg_jan" style="text-align:center;"><b>1.40</b></td><td data-key="radavg_feb" style="text-align:center;"><b>2.31</b></td><td data-key="radavg_mar" style="text-align:center;"><b>3.51</b></td><td data-key="radavg_apr" style="text-align:center;"><b>4.44</b></td><td data-key="radavg_may" style="text-align:center;"><b>5.06</b></td><td data-key="radavg_jun" style="text-align:center;"><b>5.51</b></td><td data-key="radavg_jul" style="text-align:center;"><b>5.39</b></td><td data-key="radavg_aug" style="text-align:center;"><b>4.69</b></td><td data-key="radavg_sep" style="text-align:center;"><b>3.68</b></td><td data-key="radavg_oct" style="text-align:center;"><b>2.15</b></td><td data-key="radavg_nov" style="text-align:center;"><b>1.24</b></td><td data-key="radavg_dec" style="text-align:center;"><b>0.94</b></td></tr><tr class="brd3"><td colspan="2" style="border-color: black; text-align:center;"><span class="tooltip">RadStd</span></td><td data-key="radstd_jan" style="text-align:center;"><b>0.19</b></td><td data-key="radstd_feb" style="text-align:center;"><b>0.28</b></td><td data-key="radstd_mar" style="text-align:center;"><b>0.28</b></td><td data-key="radstd_apr" style="text-align:center;"><b>0.38</b></td><td data-key="radstd_may" style="text-align:center;"><b>0.53</b></td><td data-key="radstd_jun" style="text-align:center;"><b>0.35</b></td><td data-key="radstd_jul" style="text-align:center;"><b>0.53</b></td><td data-key="radstd_aug" style="text-align:center;"><b>0.30</b></td><td data-key="radstd_sep" style="text-align:center;"><b>0.31</b></td><td data-key="radstd_oct" style="text-align:center;"><b>0.18</b></td><td data-key="radstd_nov" style="text-align:center;"><b>0.15</b></td><td data-key="radstd_dec" style="text-align:center;"><b>0.09</b></td></tr>
+
+				<tr class="brd2" height="5"><td colspan="16"></td></tr>
+
+				<tr class="greentext"><td colspan="16" style="text-align:left;">Historical Trends</td></tr>
+				  <tr class="brd5" height="5">
+						<td colspan="3" style="border-bottom-color:transparament"></td>
+						<td colspan="10" style="border-bottom-color:black"></td>
+						<td colspan="3" style="border-bottom-color:transparament"></td>
+					</tr>
+				</tbody><tbody align="center"><tr class="brd3"><td colspan="3" rowspan="2" style="border-right-color: black;border-top: 1px solid black; text-align:center;"><b></b></td><td rowspan="2" style="border-color: black; border-top: 1px solid black; text-align:center;"><span class="tooltip">DBAvg</span></td><td colspan="2" style="border-color: black; border-top: 1px solid black; text-align:center;">Heating</td><td colspan="3" style="border-color: black; border-top: 1px solid black; text-align:center;">Cooling</td><td colspan="4" style="border-color: black; border-top: 1px solid black; text-align:center;">Degree-Days</td><td colspan="3" class="brd2" style="border-top: 1px solid black; text-align:center;"></td></tr><tr class="brd3"><td style="border-color: black; text-align:center;">99% <span class="tooltip">DB</span></td><td style="border-color: black; text-align:center;">99% <span class="tooltip">DP</span></td><td style="border-color: black; text-align:center;">1% <span class="tooltip">DB</span></td><td style="border-color: black; text-align:center;">1% <span class="tooltip">WB</span></td><td style="border-color: black; text-align:center;">1% <span class="tooltip">DP</span></td><td style="border-color: black; text-align:center;"><span class="tooltip">HDD10.0</span></td><td style="border-color: black; text-align:center;"><span class="tooltip">HDD18.3</span></td><td style="border-color: black; text-align:center;"><span class="tooltip">CDD10.0</span></td><td style="border-color: black; text-align:center;"><span class="tooltip">CDD18.3</span></td></tr><tr class="brd10"><td colspan="3" style="border-color: black; text-align:center;"><b>Station Only</b></td><td style="border-color: transparent; text-align:center;"><b>N/A</b></td><td style="border-color: transparent; text-align:center;"><b>N/A</b></td><td style="border-color: transparent; text-align:center;"><b>N/A</b></td><td style="border-color: transparent; text-align:center;"><b>N/A</b></td><td style="border-color: transparent; text-align:center;"><b>N/A</b></td><td style="border-color: transparent; text-align:center;"><b>N/A</b></td><td style="border-color: transparent; text-align:center;"><b>N/A</b></td><td style="border-color: transparent; text-align:center;"><b>N/A</b></td><td style="border-color: transparent; text-align:center;"><b>N/A</b></td><td style="border-color: transparent; text-align:center;"><b>N/A</b></td></tr><tr class="brd10"><td colspan="3" style="border-color: black; text-align:center;"><b>Regional (__ neighbors)</b></td><td style="border-color: transparent; text-align:center;"><b>N/A</b></td><td style="border-color: transparent; text-align:center;"><b>N/A</b></td><td style="border-color: transparent; text-align:center;"><b>N/A</b></td><td style="border-color: transparent; text-align:center;"><b>N/A</b></td><td style="border-color: transparent; text-align:center;"><b>N/A</b></td><td style="border-color: transparent; text-align:center;"><b>N/A</b></td><td style="border-color: transparent; text-align:center;"><b>N/A</b></td><td style="border-color: transparent; text-align:center;"><b>N/A</b></td><td style="border-color: transparent; text-align:center;"><b>N/A</b></td><td style="border-color: transparent; text-align:center;"><b>N/A</b></td></tr><tr height="100"></tr></tbody>
+				</table> </div> </div>
+
+
+
+
+
+</div>
+
+
+
+<div id="print_link_icon" style="display: block;">
+<div id="link_icon"> <img onclick="generate_link(this.parentNode)" style="cursor:pointer;margin-bottom:10px" src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/link-icon.png"> </div>
+<div id="print_icon"> <img onclick="print()" style="cursor:pointer" src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/print.png"> </div>
+</div>
+<div class="picked_line" style="margin:0px;" onmousedown="dd(this)" onmouseup="dd_1(this)"><div class="show_picked_line">dimok911@gmail.com</div>Contacts </div>
+
+<script type="text/javascript">
+document.getElementById('map_canvas').style.height = document.body.clientHeight *0.6 + 'px';
+var imagesList = [
+		'images/wait.gif',
+		'images/bg-nav.gif'
+];
+
+var aImages = [];
+for (var i = 0, len = imagesList.length; i < len; i++) {
+	aImages[i] = new Image();
+	aImages[i].src = imagesList[i];
+}
+</script>
+
+	<script type="text/javascript"> var infolinks_pid = 3422973; var infolinks_wsid = 0; </script> <script type="text/javascript" src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/infolinks_main.js.下载"></script>
+
+
+
+
+
+
+
+
+
+<div style="position: fixed; top: 0px; left: 0px; width: 0px; height: 0px; background: rgba(0, 0, 0, 0); text-align: center; z-index: 9999999;"><div id="bmc-close-btn" style="position: fixed; align-items: center; justify-content: center; display: flex; visibility: hidden; border-radius: 100px; width: 40px; height: 40px; top: 16px; right: 16px; z-index: 9999999;"><svg style="width: 16px;height:16px;" width="16" height="16" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M2.45156 27.6516L0.351562 25.5516L11.9016 14.0016L0.351562 2.45156L2.45156 0.351562L14.0016 11.9016L25.5516 0.351562L27.6516 2.45156L16.1016 14.0016L27.6516 25.5516L25.5516 27.6516L14.0016 16.1016L2.45156 27.6516Z" fill="#666"></path>
+  </svg>
+  </div><iframe id="bmc-iframe" allow="publickey-credentials-get *; payment *" title="Buy Me a Coffee" style="position: fixed; margin: 0px; border: 0px; left: 18px; bottom: 90px; height: 0px; opacity: 0; width: 420px; max-width: 420px; min-height: 1162px; max-height: 1162px; border-radius: 10px; box-shadow: rgba(13, 12, 34, 0.1) -6px 0px 30px; background: url(&quot;https://cdn.buymeacoffee.com/assets/img/widget/loader.svg&quot;) center center / 64px no-repeat rgb(255, 255, 255); z-index: 999999; transition: 0.25s; transform-origin: right bottom; transform: scale(0); user-select: none;" src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/saved_resource(1).html"></iframe></div><div id="bmc-wbtn" style="display: flex; align-items: center; justify-content: center; width: 64px; height: 64px; background: rgb(95, 127, 255); color: white; border-radius: 32px; position: fixed; left: 18px; bottom: 18px; box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 8px; z-index: 9999; cursor: pointer; font-weight: 600; transition: 0.25s;"><img src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/coffee cup.svg" alt="Buy Me a Coffee" style="height: 36px; width: 36px; margin: 0; padding: 0;"></div><div style="position: fixed; left: 102px; bottom: 16px; transform-origin: right bottom; transform: scale(0.7); opacity: 0; transition: 0.25s; visibility: hidden; background: rgb(255, 255, 255); z-index: 9999; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 5px, rgba(0, 0, 0, 0.04) 0px 8px 40px, rgba(0, 0, 0, 0.15) 0px 0px 2px; padding: 16px; border-radius: 4px; font-size: 18px; color: rgb(13, 12, 34); width: auto; max-width: 260px; line-height: 1.5; font-family: &quot;Avenir Book&quot;, sans-serif;"></div><ins class="adsbygoogle adsbygoogle-noablate" data-ad-hi="true" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><div id="aswift_1_host" style="border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;min-height:auto;max-height:none;min-width:auto;max-width:none;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/ads(1).html" data-google-container-id="a!2" tabindex="0" title="Advertisement" aria-label="Advertisement" data-load-complete="true"></iframe></div></ins><div tabindex="-1" role="dialog" class="ui-dialog ui-corner-all ui-widget ui-widget-content ui-front ui-draggable ui-resizable" aria-describedby="psi_calc" style="position: absolute; height: auto; width: 350px; top: 136.781px; left: 2174.6px;" aria-labelledby="ui-id-1"><div class="ui-dialog-titlebar ui-corner-all ui-widget-header ui-helper-clearfix ui-draggable-handle"><span id="ui-id-1" class="ui-dialog-title">Psychrometric Calculator</span><button type="button" class="ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Close"><span class="ui-button-icon ui-icon ui-icon-closethick"></span><span class="ui-button-icon-space"> </span>Close</button></div><div id="psi_calc" class="ui-dialog-content ui-widget-content" style="width: auto; min-height: 169.631px; max-height: none; height: auto;"><table border="1" cellspacing="0" bordercolor="black" align="center" style="border-collapse:collapse;table-layout:fixed" width="300px"><tbody><tr align="center"><td colspan="3" style="border-bottom-color:transparent">Pressure, Pa</td><td colspan="3" style="border-bottom-color:transparent">Altitude, m</td></tr><tr align="center"><td colspan="3" style="padding-right:10px;border-top-color:transparent"><input id="p" type="text" size="7em" value="101325" onchange="javascript:document.getElementById(&#39;h&#39;).value=heightFromPressure(document.getElementById(&#39;p&#39;).value).toFixed(2);calc_psi_si.dryBulb()">   </td> <td colspan="3" style="padding-left:10px;border-top-color:transparent"> <input id="h" size="6em" type="text" value="0" onchange="javascript:document.getElementById(&#39;p&#39;).value=pressureFromHeight(document.getElementById(&#39;h&#39;).value).toFixed(0);calc_psi_si.dryBulb()"> </td> </tr><tr align="center" style="border-top: 1px solid black"> <td colspan="6" style="border-bottom-color:transparent"> <span class="tooltip">Tdb,</span> °C </td></tr><tr align="center" style="border-top-color:transparent"><td colspan="6"> <input id="tdb" type="text" size="7em" value="20" onchange="calc_psi_si.dryBulb()"> </td></tr><tr align="center"> <td colspan="2" style="border-bottom-color:transparent"> <span class="tooltip">f,</span> % </td> <td colspan="2" style="border-bottom-color:transparent"><span class="tooltip">Twb,</span> °C</td> <td colspan="2" style="border-bottom-color:transparent"> <span class="tooltip">Tdp,</span> °C</td> </tr><tr align="center"> <td colspan="2" style="border-top-color:transparent"> <div style="position:relative"><input id="fi" type="text" size="4em" value="" onchange="switch_parametres(&#39;select_11&#39;);calc_psi_si.relHum()"> <div id="select_11" class="select_1" style="position:absolute;" onclick="switch_parametres(&#39;select_11&#39;)"></div><div id="select_12" class="select_2" style="position:absolute;"> </div> </div></td> <td colspan="2" style="border-top-color:transparent"> <div style="position:relative"> <input id="twb" type="text" size="4em" onchange="javascript:switch_parametres(&#39;select_21&#39;);calc_psi_si.wetBulb()"><div id="select_21" class="select_1" style="position:absolute;" onclick="switch_parametres(&#39;select_21&#39;)"> </div><div id="select_22" class="select_2" style="position:absolute;"> </div></div> </td> <td colspan="2" style="border-top-color:transparent"> <div style="position:relative"> <input id="tdp" type="text" size="4em" onchange="javascript:switch_parametres(&#39;select_31&#39;);calc_psi_si.dewPoint()"> <div id="select_31" class="select_1" style="position:absolute;" onclick="switch_parametres(&#39;select_31&#39;)"> </div><div id="select_32" class="select_2" style="position:absolute;"> </div></div> </td> </tr><tr><td colspan="6" style="padding:0px;"><div id="psi_calc_result"></div> </td></tr></tbody></table></div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div><iframe id="IL_MANAGE" src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/manage.html" sandbox="allow-same-origin allow-scripts allow-top-navigation" style="position: absolute; margin: 0px; display: none;"></iframe><deepl-input-controller translate="no"><template shadowrootmode="open"><link rel="stylesheet" href="chrome-extension://cofdbpoegempjloogbagkncekinflcnj/build/content.css"><div dir="ltr" style="visibility: initial !important;"><div class="dl-input-translation-container svelte-95aucy"><div></div></div></div></template></deepl-input-controller><iframe src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/aframe.html" width="0" height="0" style="display: none;"></iframe><script type="text/javascript" async="" src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/l"></script><div id="IL_IFR_DIV0"><iframe name="IL_IFR_FRAME0" src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/container-6.0.html" style="display: none;"></iframe></div><div id="wait_background" style="position: absolute; top: 0px; width: 0px; height: 0px; background-color: white; opacity: 0.7;"><div id="wait" style="top: 641px; opacity: 1; display: none;"><img src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/wait.gif">  wait...</div></div><div id="tt" style="opacity: 0; display: none; width: 200px; height: 63px; top: 879px; left: 1722px;"><div id="ttleft" style="height: 58px;"></div><div id="tttop"></div><div id="ttcont">Mean coincident wind speed, m/s</div><div id="ttleft_bottom"></div><div id="ttbot"></div></div><div id="d_IL_INSEARCH" class="IL_BASE insearch5" data-hook-id="d_IL_INSEARCH" style="display: block; bottom: 0px; position: fixed; z-index: 2147483647; width: 728px; height: 110px; background: linear-gradient(0deg, rgb(255, 255, 255), rgb(255, 255, 255)) 0px 20px no-repeat; transition: background linear; left: calc(50% + 0px); margin-left: -364px;"><div data-d_il_insearch_5_0_mtq3fje4mzu="" style="display: none"></div><div class="IL_BASE" style="display: block; text-align:center; position:absolute;top:0; left:0;    width:728px; height:110px;  cursor: pointer;">            <div class="IL_BASE" style="position:absolute;     width:728px;      height:24px;                                         left:15px;                                     top:7px; color:#4E4E4E; font-family:Arial,sans-serif;             font-size:15pt; font-weight:normal; font-style:normal; ">       <span class="IL_BASE" title="" style="color:#4E4E4E;            font-weight: bold; font-size:13pt; overflow:hidden;"> </span>                </div>                                                    <div class="IL_BASE IL_SR_BG" id="IL_SR_X5" style="position:absolute; right:0px; top:3px; width:19px; height:19px;  background-position:-15px 0; cursor:pointer; font-size:1px;">                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="23.276px" height="23.276px" viewBox="0 0 23.276 23.276" enable-background="new 0 0 23.276 23.276" xml:space="preserve" style="position:absolute; top:5px; right:0px;width:19px; height:19px; z-index: 20000000;">                     <g>                         <defs>                             <clippath id="SVGID_2_">                                 <rect id="SVGID_1_" width="23.276" height="23.276"></rect>                             </clippath>                         </defs>                         <path clip-path="url(#SVGID_2_)" style="fill:#696969" d="M22.776,11.637c0-6.153-4.988-11.137-11.14-11.137                                    C5.485,0.5,0.5,5.484,0.5,11.637c0,6.149,4.985,11.139,11.137,11.139C17.788,22.776,22.776,17.787,22.776,11.637">                         </path>                         <circle clip-path="url(#SVGID_2_)" fill="none" style="stroke:#696969" stroke-miterlimit="10" cx="11.638" cy="11.637" r="11.138"></circle>                         <path clip-path="url(#SVGID_2_)" style="fill:#FFFFFF" d="M10.372,11.735l-3.2,3.198c-0.349,0.355-0.349,0.916,0,1.265                                    c0.35,0.353,0.914,0.353,1.269,0l3.197-3.196l3.198,3.196c0.353,0.353,0.918,0.353,1.265,0c0.354-0.349,0.354-0.909,0-1.265                                    l-3.199-3.198l3.199-3.199c0.354-0.346,0.354-0.918,0-1.262C15.93,7.093,15.701,7.01,15.469,7.01c-0.228,0-0.457,0.083-0.633,0.265                                    l-3.198,3.192L8.44,7.274C8.265,7.093,8.037,7.01,7.807,7.01S7.348,7.093,7.171,7.274c-0.349,0.344-0.349,0.916,0,1.262                                    L10.372,11.735z">                         </path>                     </g>                </svg>            </div>            </div>        <div id="IL_SR_AD_AREA" class="IL_BASE" style="position:relative;   bottom:-20px; margin-top: 0px ; left:0; width:728px;   height:90px;     padding-top:0px; background-color:#ffffff;; cursor: pointer;">        <div id="IL_SR_RESULT_CONTENT" class="IL_SR_RESULT IL_BASE d_IL_INSEARCH" style="position:absolute;                     left:0px;            bottom: 0px;            width:728px; height:90px; background-color:#ffffff;; cursor: pointer;">                                    <iframe name="IL_SR_FRAME5" class="IL_BASE" src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/saved_resource(2).html" width="728" height="90" frameborder="0" scrolling="no" data-hookid="d_IL_INSEARCH"></iframe></div></div></div><iframe name="google_ads_top_frame" id="google_ads_top_frame" style="display: none; position: fixed; left: -999px; top: -999px; width: 0px; height: 0px;" src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/saved_resource(3).html"></iframe><button class="compare-btn compare-btn-floating" id="compare_btn_715780_0" data-state="compare" onclick="toggleCompare(&#39;715780&#39;, &#39;2021&#39;, &#39;SI&#39;, 0)" data-anchor="compare_btn_715780_0_anchor" data-floating="1" style="left: 1768px; top: 1025.47px;">
+									Compare
+								</button></body><iframe id="google_esf" name="google_esf" src="./ASHRAE climatic design conditions 2009_2013_2017_2021_2025_files/zrt_lookup_fy2021.html" style="display: none;"></iframe><grammarly-desktop-integration data-grammarly-shadow-root="true" style="visibility: visible !important;"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;limited&quot;,&quot;isActive&quot;:false,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>

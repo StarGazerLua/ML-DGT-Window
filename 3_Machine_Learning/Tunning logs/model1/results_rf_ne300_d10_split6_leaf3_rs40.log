@@ -1,0 +1,60 @@
+========================================================================
+[model1/ne300_d10_split6_leaf3_rs40] start at 2026-05-28T14:45:41
+[model1/ne300_d10_split6_leaf3_rs40] hyperparameters:
+    n_estimators = 300
+    max_depth = 10
+    min_samples_split = 6
+    min_samples_leaf = 3
+    random_state = 40
+    loco = True
+    loco_jobs = 8
+    rf_jobs = 1
+    save_root = results_rf_ne300_d10_split6_leaf3_rs40/model1/
+========================================================================
+Logging to results_rf_ne300_d10_split6_leaf3_rs40/model1/train.log
+Number of cities in training set: 50
+Number of cities in test set: 50 <StringArray>
+[         'MURMANSK',             'LHASA',          'MOSKOVA ',
+       'MINNEAPOLIS',           'YAKUTSK',       'KOEBENHAVNS',
+       'ULAANBAATAR',              'OSLO',           'CHICAGO',
+            'HOHHOT',            'QUEBEC',             'MINSK',
+         'STOCKHOLM',              'OULU',              'KYIV',
+            'BOSTON',            'YAN AN',            'HARBIN',
+          'NEW YORK',          'HELSINKI',            'LONDON',
+            'URUMQI',   'TUOTUOHE, CHINA',              'NUUK',
+     'YEKATERINBURG',         'SINGAPORE',       'NEW ORLEANS',
+   'BADIN, PAKISTAN',           'BAGHDAD',       'HO CHI MINH',
+           'PHOENIX',            'DALLAS',           'BANGKOK',
+            'MANAUS',            'RIYADH',           'PANAMA ',
+          'BRISBANE',    'RIO DE JANEIRO',             'CAIRO',
+            'TAIPEI',              'DOHA', 'NEWMAN, AUSTRALIA',
+           'NAIROBI',         'HONG KONG',             'MIAMI',
+          'SAN JOSE',      'BILMA, NIGER',         'ABU DHABI',
+             'SANYA',          'HONOLULU']
+Length: 50, dtype: str
+Number of samples in training set: 40000
+Number of samples in test set: 10000
+[LOCO] running for 10 cities from results/model1/loco_city.csv
+[LOCO] cities: ['ULAANBAATAR', 'TUOTUOHE, CHINA', 'MURMANSK', 'KYIV', 'BOSTON', 'YAN AN', 'DALLAS', 'HONG KONG', 'HO CHI MINH', 'ABU DHABI']
+Skipping per-city tree plots when --loco_jobs is not 1 to avoid multiprocessing plotting overhead.
+[LOCO] dispatching 10 jobs (loco_jobs=8, rf_jobs=1)
+[LOCO] all workers returned, total_elapsed=103.6s
+[LOCO] per-city metrics:
+           City  n_train_samples  n_test_samples      RMSE       MAE     MAPE        R2
+    ULAANBAATAR            49000            1000 54.064469 53.821010 0.028774  0.263365
+TUOTUOHE, CHINA            49000            1000 91.517591 78.147863 0.038105  0.321175
+       MURMANSK            49000            1000 97.899228 90.983577 0.048255 -1.539602
+           KYIV            49000            1000 83.419713 83.201264 0.073115 -5.921683
+         BOSTON            49000            1000 74.149095 73.872263 0.076872 -4.389173
+         YAN AN            49000            1000 76.314511 75.413279 0.080424 -4.974723
+         DALLAS            49000            1000 52.930610 42.277790 0.053528 -1.727943
+      HONG KONG            49000            1000 43.628219 41.074885 0.101935 -0.205559
+    HO CHI MINH            49000            1000 40.240335 39.832329 0.061919  0.737225
+      ABU DHABI            49000            1000 76.152942 74.381865 0.084553  0.159325
+[LOCO] aggregate metrics (mean / std across cities):
+    RMSE  mean=69.0317 std=20.0927
+    MAE   mean=65.3006 std=19.1505
+    MAPE  mean=6.4748% std=2.2725%
+    R2    mean=-1.7278 std=2.4803
+[LOCO] saved results to results_rf_ne300_d10_split6_leaf3_rs40/model1/loco_results.csv
+[LOCO] end at 2026-05-28T14:47:31

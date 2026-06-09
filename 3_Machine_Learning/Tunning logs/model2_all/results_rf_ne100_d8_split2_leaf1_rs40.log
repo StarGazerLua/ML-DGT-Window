@@ -1,0 +1,155 @@
+========================================================================
+[model2_all/ne100_d8_split2_leaf1_rs40] start at 2026-05-28T14:46:07
+[model2_all/ne100_d8_split2_leaf1_rs40] hyperparameters:
+    n_estimators = 100
+    max_depth = 8
+    min_samples_split = 2
+    min_samples_leaf = 1
+    random_state = 40
+    loco = True
+    loco_jobs = 8
+    rf_jobs = 1
+    t_tstd_only = False
+    save_root = results_rf_ne100_d8_split2_leaf1_rs40/model2_all/
+========================================================================
+Logging to results_rf_ne100_d8_split2_leaf1_rs40/model2_all/train.log
+Number of cities in training set: 500
+Number of cities in test set: 500 <StringArray>
+[                                   'OSLO',
+                      'UTQIAGVIK, AK, USA',
+                            'HULIN, CHINA',
+          'BRUNEI INTL, BRUNEI DARUSSALAM',
+ 'CHITTAGONG SHAH AMANAT INTL, BANGLADESH',
+               'HAIKOU MEILAN INTL, CHINA',
+                'RUSTENBURG, SOUTH AFRICA',
+                        'MAZATLAN, MEXICO',
+                                    'OULU',
+           'ALOR MALI KALABAHI, INDONESIA',
+ ...
+                   'BAHRAIN INTL, BAHRAIN',
+                    'CLAREMORRIS, IRELAND',
+              'USUGLI, RUSSIAN FEDERATION',
+                         'BISKRA, ALGERIA',
+                             'NEW ORLEANS',
+                        'HENGCHUN, TAIWAN',
+                                  'HOHHOT',
+                        'CAMPINAS, BRAZIL',
+             'ZINNWALD GEORGENFE, GERMANY',
+                      'STORHOFDI, ICELAND']
+Length: 500, dtype: str
+Number of samples in training set: 48000
+Number of samples in test set: 12000
+[LOCO] running for 100 cities from results/model2_all/loco_city.csv
+[LOCO] cities: ['SCAMMON BAY, AK, USA', 'VANZHILKYNAK, RUSSIAN FEDERATION', 'TUNGOKOCHEN, RUSSIAN FEDERATION', 'BRATSK, RUSSIAN FEDERATION', 'SAVOONGA, AK, USA', 'MEKORYUK, AK, USA', 'IZVESTIJ TSIK, RUSSIAN FEDERATION', 'NAIMAKKA, SWEDEN', 'KEFLAVIK INTL, ICELAND', 'DELTA BURNS BOG, BC, CANADA', 'HALIUT, CHINA', 'WASSERKUPPE, GERMANY', 'HARBIN', 'MIDDLETON ISLAND, AK, USA', 'HOUGHTON COUNTY AP, MI, USA', 'ESTEVAN POINT, BC, CANADA', 'HELSINKI VANTAA, FINLAND', 'REYKJAVIK, ICELAND', 'TATLAYOKO LAKE, BC, CANADA', 'JURH, CHINA', 'REXBURG MADISON COUNTY AP, ID, USA', 'MCGREGOR, MN, USA', 'MELFORT, SK, CANADA', 'GULBENE, LATVIA', 'HOONAH, AK, USA', 'DONGSHENG, CHINA', 'SQUAMISH, BC, CANADA', 'KARAMAY, CHINA', 'MEZEN, RUSSIAN FEDERATION', 'JONKOPING, SWEDEN', 'HOYDALSMO II, NORWAY', 'BOTEV VRAH, BULGARIA', 'BUGULMA, RUSSIAN FEDERATION', 'FORNAES FYR, DENMARK', 'MELEUZ, RUSSIAN FEDERATION', 'NARSARSUAQ, GREENLAND', 'BJELASNICA, BOSNIA AND HERZEGOVINA', 'XILIN GOL, CHINA', 'NUNARSUIT, GREENLAND', 'ENDERBY ISLAND, NEW ZEALAND', 'GEDSER, DENMARK', 'GIESSEN', 'KARLSTAD AP, SWEDEN', 'SONNEBERG NEUFANG, GERMANY', 'DETROIT', 'STUTTGART ECHTERDINGEN, GERMANY', 'GOODLAND, KS, USA', 'BOSTON', 'DENVER', 'GAYNDAH, AUSTRALIA', 'DJERBA ZARZIS, TUNISIA', 'GAFSA, TUNISIA', 'HONG KONG', 'KUMEJIMA, JAPAN', 'WUZHOU, CHINA', 'BLACKALL, AUSTRALIA', 'GACHSARAN, IRAN, ISLAMIC REPUBLIC OF', 'SHENZHEN, CHINA', 'GALVESTON, TX, USA', 'CATAMARCA, ARGENTINA', 'NEW ORLEANS', 'FUTENMA MCAS, JAPAN', 'OUARZAZATE, MOROCCO', 'FUZHOU, CHINA', 'GATESVILLE, TX, USA', 'BOURKE, AUSTRALIA', 'UPINGTON, SOUTH AFRICA', 'GILMER, TX, USA', 'ALEXANDRIA INTL, LA, USA', 'GATTON, AUSTRALIA', 'MACAU', 'JAISALMER, INDIA', 'SURAT THANI, THAILAND', 'TAHITI, FRENCH POLYNESIA', 'AMBULONG, PHILIPPINES', 'TAK, THAILAND', 'ANR ROBINSON INTL, TRINIDAD AND TOBAGO', 'SANYA', 'BALASORE, INDIA', 'TAKAROA, FRENCH POLYNESIA', 'ACAPULCO INTL, MEXICO', 'DOHA', 'MINA SALALAH, OMAN', 'CHUMPHON, THAILAND', 'ABU DHABI', 'HENGCHUN, TAIWAN', 'QIONGHAI, CHINA', "ADIAKE, COTE D'IVOIRE", 'CUYO, PHILIPPINES', 'HYDERABAD INTL, INDIA', 'RAJKOT, INDIA', 'ILE SURPRISE, NEW CALEDONIA', 'RAS AL KHAIMAH INTL, UNITED ARAB EMIRATES', 'MUSCAT', 'KAOHSIUNG', 'BIKANER, INDIA', 'DHAKA HAZRAT SHAHJALAL INTL, BANGLADESH', 'PORLAMAR, VENEZUELA', 'AGALEGA, MAURITIUS', 'JASK, IRAN, ISLAMIC REPUBLIC OF']
+Skipping per-city tree plots when --loco_jobs is not 1 to avoid multiprocessing plotting overhead.
+[LOCO] dispatching 100 jobs (loco_jobs=8, rf_jobs=1)
+[LOCO] all workers returned, total_elapsed=121.2s
+[LOCO] per-city metrics:
+                                     City  n_train_samples  n_test_samples       RMSE        MAE     MAPE        R2
+                     SCAMMON BAY, AK, USA            59880             120 114.725733  92.313122 0.048443 -0.654811
+         VANZHILKYNAK, RUSSIAN FEDERATION            59880             120 103.284847 102.221458 0.047187 -1.497984
+          TUNGOKOCHEN, RUSSIAN FEDERATION            59880             120 113.966136 109.847872 0.047532 -0.826959
+               BRATSK, RUSSIAN FEDERATION            59880             120  94.588729  85.025710 0.042635 -0.664903
+                        SAVOONGA, AK, USA            59880             120 145.995519 143.345401 0.065649 -1.706121
+                        MEKORYUK, AK, USA            59880             120 118.698105 113.120077 0.062610 -1.147184
+        IZVESTIJ TSIK, RUSSIAN FEDERATION            59880             120 261.223717 260.583213 0.081515 -4.732599
+                         NAIMAKKA, SWEDEN            59880             120 150.688364 147.986359 0.073923 -2.987212
+                   KEFLAVIK INTL, ICELAND            59880             120  73.455373  57.990855 0.045366  0.070856
+              DELTA BURNS BOG, BC, CANADA            59880             120  53.782808  44.157254 0.052536 -1.852918
+                            HALIUT, CHINA            59880             120  70.570868  60.469263 0.047692 -0.754356
+                     WASSERKUPPE, GERMANY            59880             120  57.394655  47.189695 0.041347 -0.036309
+                                   HARBIN            59880             120  85.618358  77.439732 0.049189 -1.658770
+                MIDDLETON ISLAND, AK, USA            59880             120  87.237278  74.974556 0.059427 -0.980674
+              HOUGHTON COUNTY AP, MI, USA            59880             120  85.174975  70.541393 0.055190 -1.083297
+                ESTEVAN POINT, BC, CANADA            59880             120  44.282850  38.087179 0.045387 -0.302144
+                 HELSINKI VANTAA, FINLAND            59880             120  91.845675  81.061567 0.059088 -1.959345
+                       REYKJAVIK, ICELAND            59880             120 121.323934 108.715733 0.076094 -1.742259
+               TATLAYOKO LAKE, BC, CANADA            59880             120 115.320889  98.150570 0.067225 -1.239455
+                              JURH, CHINA            59880             120 125.377189 116.381393 0.082382 -4.080311
+       REXBURG MADISON COUNTY AP, ID, USA            59880             120  87.433903  73.619065 0.063690 -1.636984
+                        MCGREGOR, MN, USA            59880             120 101.819707  92.108364 0.071765 -3.629903
+                      MELFORT, SK, CANADA            59880             120  94.499414  89.876634 0.054293 -1.661822
+                          GULBENE, LATVIA            59880             120  62.000985  49.426754 0.039719 -0.796353
+                          HOONAH, AK, USA            59880             120  86.143189  71.568114 0.057678 -1.035881
+                         DONGSHENG, CHINA            59880             120  81.218696  69.422590 0.061694 -1.588264
+                     SQUAMISH, BC, CANADA            59880             120  72.659777  66.946520 0.070042 -3.469440
+                           KARAMAY, CHINA            59880             120  85.656054  85.484088 0.060540 -3.856563
+                MEZEN, RUSSIAN FEDERATION            59880             120 109.900901 105.782232 0.053537 -1.651721
+                        JONKOPING, SWEDEN            59880             120  71.714883  58.699131 0.048731 -0.746483
+                     HOYDALSMO II, NORWAY            59880             120 112.199509 102.524491 0.073238 -2.822107
+                     BOTEV VRAH, BULGARIA            59880             120  67.556295  66.353663 0.069060 -2.078115
+              BUGULMA, RUSSIAN FEDERATION            59880             120  95.477148  85.685268 0.054004 -2.310661
+                     FORNAES FYR, DENMARK            59880             120  71.301789  66.561880 0.069232 -1.259934
+               MELEUZ, RUSSIAN FEDERATION            59880             120 140.712252 134.462698 0.081266 -6.303095
+                    NARSARSUAQ, GREENLAND            59880             120 133.333416 115.059187 0.062305 -0.935743
+       BJELASNICA, BOSNIA AND HERZEGOVINA            59880             120  71.425507  66.349706 0.061009 -0.924167
+                         XILIN GOL, CHINA            59880             120 142.815221 136.992065 0.085446 -4.310425
+                     NUNARSUIT, GREENLAND            59880             120 140.710398 135.369747 0.076721 -1.547035
+              ENDERBY ISLAND, NEW ZEALAND            59880             120  76.577958  66.436012 0.071537 -0.267423
+                          GEDSER, DENMARK            59880             120  44.080085  40.763537 0.044995 -0.039538
+                                  GIESSEN            59880             120 106.928557 103.116903 0.108114 -5.178675
+                      KARLSTAD AP, SWEDEN            59880             120  94.344735  80.257918 0.068652 -2.343627
+               SONNEBERG NEUFANG, GERMANY            59880             120 100.587426  89.403455 0.082705 -3.135252
+                                  DETROIT            59880             120  52.748351  51.140917 0.049988 -1.730045
+          STUTTGART ECHTERDINGEN, GERMANY            59880             120  71.093042  67.125249 0.073257 -1.867377
+                        GOODLAND, KS, USA            59880             120  61.545054  59.522893 0.058504 -2.442811
+                                   BOSTON            59880             120  70.410238  66.526669 0.068463 -2.678501
+                                   DENVER            59880             120  79.969200  78.892433 0.083251 -6.016460
+                       GAYNDAH, AUSTRALIA            59880             120  45.840693  38.259997 0.099123  0.269667
+                   DJERBA ZARZIS, TUNISIA            59880             120  33.427428  27.061285 0.063021  0.574993
+                           GAFSA, TUNISIA            59880             120  31.420815  25.850120 0.043462  0.344940
+                                HONG KONG            59880             120  61.922094  52.264084 0.131418 -1.056085
+                          KUMEJIMA, JAPAN            59880             120  50.184531  42.362946 0.106204  0.179906
+                            WUZHOU, CHINA            59880             120  32.395524  25.802490 0.056132  0.394898
+                      BLACKALL, AUSTRALIA            59880             120  57.122731  48.774606 0.091042  0.292534
+     GACHSARAN, IRAN, ISLAMIC REPUBLIC OF            59880             120  50.759524  44.008779 0.051974  0.126958
+                          SHENZHEN, CHINA            59880             120  28.993507  23.408995 0.051278  0.714372
+                       GALVESTON, TX, USA            59880             120  34.731213  28.389375 0.057045  0.459703
+                     CATAMARCA, ARGENTINA            59880             120  26.605770  22.700851 0.045434  0.387388
+                              NEW ORLEANS            59880             120  38.045698  32.491911 0.062592  0.186395
+                      FUTENMA MCAS, JAPAN            59880             120  34.233835  28.707566 0.075091  0.601542
+                      OUARZAZATE, MOROCCO            59880             120  41.554499  36.120593 0.058856 -0.115190
+                            FUZHOU, CHINA            59880             120  35.387226  30.327855 0.063718 -0.547705
+                      GATESVILLE, TX, USA            59880             120  42.037099  35.651447 0.056012 -0.166393
+                        BOURKE, AUSTRALIA            59880             120  71.653515  66.984484 0.124661 -1.228312
+                   UPINGTON, SOUTH AFRICA            59880             120  44.488509  35.957986 0.069104  0.469869
+                          GILMER, TX, USA            59880             120  49.072410  43.490603 0.078502 -2.473599
+                 ALEXANDRIA INTL, LA, USA            59880             120  52.615775  47.593717 0.090210 -1.731251
+                        GATTON, AUSTRALIA            59880             120  39.742253  33.019039 0.091744  0.161393
+                                    MACAU            59880             120  44.379590  36.081602 0.089089  0.328566
+                         JAISALMER, INDIA            59880             120  65.603243  51.624127 0.060432  0.440866
+                    SURAT THANI, THAILAND            59880             120  61.538139  50.580321 0.092954  0.418939
+                 TAHITI, FRENCH POLYNESIA            59880             120  52.534532  43.535263 0.078178  0.672727
+                    AMBULONG, PHILIPPINES            59880             120  45.331360  38.113051 0.059822  0.727353
+                            TAK, THAILAND            59880             120  47.913427  39.923282 0.060304  0.636169
+   ANR ROBINSON INTL, TRINIDAD AND TOBAGO            59880             120  48.546889  40.234759 0.070030  0.740747
+                                    SANYA            59880             120  63.142079  54.665729 0.117029  0.304742
+                          BALASORE, INDIA            59880             120  59.996041  50.390847 0.076592  0.441932
+                TAKAROA, FRENCH POLYNESIA            59880             120  69.388945  58.051571 0.083599  0.499420
+                    ACAPULCO INTL, MEXICO            59880             120  66.942308  56.328517 0.083750  0.518790
+                                     DOHA            59880             120  85.109860  73.771321 0.081719  0.101777
+                       MINA SALALAH, OMAN            59880             120  50.057482  40.319721 0.087147  0.720120
+                       CHUMPHON, THAILAND            59880             120  54.049788  41.853470 0.076293  0.553903
+                                ABU DHABI            59880             120  85.710589  73.670470 0.082042  0.103872
+                         HENGCHUN, TAIWAN            59880             120  59.304398  49.618271 0.096093  0.427977
+                          QIONGHAI, CHINA            59880             120  53.351428  45.510070 0.089894  0.351732
+                    ADIAKE, COTE D'IVOIRE            59880             120  69.724131  60.328255 0.127851  0.138864
+                        CUYO, PHILIPPINES            59880             120  74.476749  68.271546 0.091391  0.348185
+                    HYDERABAD INTL, INDIA            59880             120  60.164493  50.518483 0.085408  0.473446
+                            RAJKOT, INDIA            59880             120 128.104281 118.483909 0.145831 -0.802708
+              ILE SURPRISE, NEW CALEDONIA            59880             120  50.137807  39.505848 0.086580  0.649073
+RAS AL KHAIMAH INTL, UNITED ARAB EMIRATES            59880             120  83.194965  71.427464 0.074672  0.207627
+                                   MUSCAT            59880             120  50.116668  37.714580 0.051722  0.741633
+                                KAOHSIUNG            59880             120  44.292013  36.536946 0.076689  0.575014
+                           BIKANER, INDIA            59880             120  81.674241  69.851283 0.070282  0.059328
+  DHAKA HAZRAT SHAHJALAL INTL, BANGLADESH            59880             120  43.516821  34.672099 0.059733  0.666349
+                      PORLAMAR, VENEZUELA            59880             120  68.913344  55.782588 0.090501  0.509710
+                       AGALEGA, MAURITIUS            59880             120  55.991262  45.375465 0.083404  0.635996
+          JASK, IRAN, ISLAMIC REPUBLIC OF            59880             120 123.738050 119.391263 0.162085 -0.722844
+[LOCO] aggregate metrics (mean / std across cities):
+    RMSE  mean=75.5060 std=35.5805
+    MAE   mean=67.2644 std=35.8050
+    MAPE  mean=7.2316% std=2.2526%
+    R2    mean=-0.8879 std=1.5893
+[LOCO] saved results to results_rf_ne100_d8_split2_leaf1_rs40/model2_all/loco_results.csv
+[LOCO] end at 2026-05-28T14:48:18

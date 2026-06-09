@@ -1,0 +1,10 @@
+https://energyplus-weather.s3.amazonaws.com/asia_wmo_region_2/CHN/CHN_Beijing.Beijing.545110_IWEC/CHN_Beijing.Beijing.545110_IWEC.epw
+
+https://energyplus-weather.s3.amazonaws.com/southwest_pacific_wmo_region_5/SGP/SGP_Singapore.486980_IWEC/SGP_Singapore.486980_IWEC.epw
+
+https://energyplus-weather.s3.amazonaws.com/north_and_central_america_wmo_region_4/CAN/PQ/CAN_PQ_Quebec.717140_CWEC/CAN_PQ_Quebec.717140_CWEC.epw
+
+
+
+
+
